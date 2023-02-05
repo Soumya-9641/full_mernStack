@@ -4,6 +4,7 @@ import Contact from "./components/Contact"
 import About from "./components/About"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
+import Error from "./components/Error"
 import './App.css';
 import {Route,Routes} from "react-router-dom"
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/about" element={<> <Navbar/> <About/></>} />
         <Route path="/login" element={<> <Navbar/>  <Login/></>} />
         <Route path="/signup" element={<> <Navbar/> <Signup/></>} />
+        <Route  path="*" element={<> <Navbar/> <Error/></>} />
       
         </Routes>
       

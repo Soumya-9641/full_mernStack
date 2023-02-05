@@ -40,14 +40,14 @@ router.get("/",(req,res)=>{
 router.post("/register", async (req,res)=>{
     const {name,email,phone,work,password,cpassword}= req.body
          if(!name || !email || !phone || !work||!password||!cpassword){
-             return res.status(200).json({error:"plz filled the field properly"})
+             return res.status(403).json({error:"plz filled the field properly"})
         }
         try{
            const userexist= await User.findOne({email:email})
            if(userexist){
-            return res.status(200).json({error:"email already exist"})
+            return res.status(422).json({error:"email already exist"})
            }else if(password!=cpassword){
-            return res.status(200).json({error:"password are not matching"})
+            return res.status(402).json({error:"password are not matching"})
            }else{
             const user = new User({name,email,phone,work,password,cpassword})
             await user.save()
@@ -73,24 +73,25 @@ router.post("/login", async (req,res)=>{
         const userLogin = await User.findOne({email:email})
     
 
-        const isMatch = await bcrypt.compare(password,userLogin.password)
+        
         if(userLogin){
+            const isMatch = await bcrypt.compare(password,userLogin.password)
             console.log(userLogin)
-             token = userLogin.generateAuthToken();
+             token = await userLogin.generateAuthToken();
             console.log(token)
             res.cookie("jwtoken",token,{
                 expires: new Date(Date.now() + 12323000000),
                 httpOnly:true
-            })
-        if(isMatch){
-            const token = 
-                res.status(200).json({message:"user sign in successfully"})
+            });
+        if(!isMatch){
+            res.status(402).json({error:"Invalid credentials part 1"})
+            
         }else{
-            res.status(402).json({error:"Invalid credentials"})
+            res.status(200).json({message:"user sign in successfully"})
 
         }
         }else{
-            res.status(402).json({error:"Invalid credentials"})
+            res.status(402).json({error:"Invalid credentials part 2"})
         }
         
 
