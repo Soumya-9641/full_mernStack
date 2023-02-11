@@ -3,8 +3,8 @@ require("../db/connect")
 const User = require("../models/user")
 const router = express.Router()
 const bcrypt = require("bcryptjs")
-const jwt =  require("jsonwebtoken")
-
+const jwtoken =  require("jsonwebtoken")
+const authenticate = require("../middlewares/authenticate");
 
 router.get("/",(req,res)=>{
     console.log("Call the middlewares")
@@ -100,8 +100,33 @@ router.post("/login", async (req,res)=>{
     }
 })
     
+router.get("/about",authenticate,(req,res)=>{
+    console.log("Hello my about")
+    res.send(req.rootUser);
+})
+router.get("/getdata",authenticate,(req,res)=>{
+    console.log("Hello my contact")
+    res.send(req.rootUser);
+})
+router.post("/contact",authenticate,async (req,res)=>{
+    try{
+        const {name,email,phone,message} = req.body;
+        if(!name || !email|| !phone|| !message){
+            console.log("PLZ fill all the data");
+            return res.json({error: "plz fill the data"});
 
-    
+        }
+        const usercontact = await User.findOne({_id:req.userID });
+        if(usercontact){
+            const contactMessage = await usercontact.addMessage(name,email,phone,message);
+            await usercontact.save();
+            res.status(201).json({message:"user contact successfully"})
+        }
+
+    }catch(err){
+        console.log(err);
+    }
+})
   
 
 module.exports = router

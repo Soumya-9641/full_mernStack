@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require('cookie-parser')
 const app = express()
 const multer = require("multer")
 const mongoose = require("mongoose")
@@ -13,28 +14,30 @@ const PORT = process.env.PORT | 8000;
 // app.use(multer({
 //     dest: './router/auth.js'
 //   }));
+
+app.use(cookieParser())
 app.use(express.json())
 app.use(require('./router/auth'));
 
 //middlewares
 
-const middlewares = (req,res,next)=>{
-    console.log("Hello middlewares")
-    next()
-}
+// const middlewares = (req,res,next)=>{
+//     console.log("Hello middlewares")
+//     next()
+// }
 //middlewares();
-app.get("/",middlewares,(req,res)=>{
+app.get("/",(req,res)=>{
     console.log("Call the middlewares")
     res.send("Hello World")
 })
-app.get("/about",middlewares,(req,res)=>{
-    console.log("Call the middlewares")
-    res.send("Hello about us page")
-})
-app.get("/contact",middlewares,(req,res)=>{
-    console.log("Call the middlewares")
-    res.send("Hello contact page")
-})
+// app.get("/about",middlewares,(req,res)=>{
+//     console.log("Call the middlewares")
+//     res.send("Hello about us page")
+// })
+// app.get("/contact",(req,res)=>{
+//     console.log("Call the middlewares")
+//     res.send("Hello contact page")
+// })
 
 app.listen(PORT , (req,res)=>{
     console.log(`app is running on port ${PORT}`)
