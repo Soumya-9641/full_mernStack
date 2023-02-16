@@ -127,6 +127,12 @@ router.post("/contact",authenticate,async (req,res)=>{
         console.log(err);
     }
 })
+
+router.get("/logout",(req,res)=>{
+    console.log("Hello my login page")
+    res.clearCookie("jwtoken",{path:"/"})
+    res.status(200).send("Logout page called");
+})
   
 
 module.exports = router
