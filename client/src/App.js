@@ -17,6 +17,7 @@ import Stats from "./components/Stats"
 import About1 from "./components/About1"
 import Business from "./components/Business"
 import Contact1 from "./components/Contact1"
+import Donate from "./components/Donate"
 import './App.css';
 import styles from "./style"
 import React,{createContext} from "react"
@@ -42,6 +43,7 @@ function App() {
               <div className={`${styles.boxWidth}`}>
               <Stats/>
               <Business/>
+              <Donate/>
                 <Campaign/>
                <Involved/>
                <Reward/>

@@ -55,7 +55,7 @@ export const work = [
   {
     id: "work-3",
     icon: send,
-    title: "Balance Transfer",
+    title: "Get Rewards",
     content:
       "A balance transfer credit card can save you a lot of money in interest charges.",
   },
@@ -117,17 +117,17 @@ export const stats = [
   {
     id: "stats-1",
     title: "User Active",
-    value: "3800+",
+    value: "100+",
   },
   {
     id: "stats-2",
     title: "Trusted by Company",
-    value: "230+",
+    value: "20+",
   },
   {
     id: "stats-3",
     title: "Transaction",
-    value: "$230M+",
+    value: "₹10lakhs+",
   },
 ];
 

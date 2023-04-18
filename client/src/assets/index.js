@@ -27,12 +27,24 @@ import people02 from "./people02.png";
 import people03 from "./people03.png";
 import mainlogo from "./mainlogo.png";
 import pickup from "./pickup.png"
+import rewards from "./rewards.png"
 import delivery1 from "./delivery.png";
+import cloth from "./cloth.png";
+import bag from "./bag.png";
+import shoes from "./shoes.png"
+import furniture from "./furniture.png";
+import stationary from "./sationary.png"
 import clothdonation from "./cloth-donation.png"
 export {
   airbnb,
   delivery,
   delivery1,
+  cloth,
+  shoes,
+  bag,
+  stationary,
+  furniture,
+  rewards,
   pickup,
   bill,
   binance,
