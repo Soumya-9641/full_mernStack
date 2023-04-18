@@ -37,7 +37,7 @@ app.get("/",(req,res)=>{
 // app.get("/contact",(req,res)=>{
 //     console.log("Call the middlewares")
 //     res.send("Hello contact page")
-// })
+// }) 
 
 app.listen(PORT , (req,res)=>{
     console.log(`app is running on port ${PORT}`)

@@ -6,6 +6,8 @@ import coinbase from "./coinbase.png";
 import dropbox from "./dropbox.png";
 //import logo from "./logo.svg";
 import quotes from "./quotes.svg";
+import delivery from "./delivery.svg"
+//import heading from "./heading.svg";
 import robot from "./robot.png";
 import send from "./Send.svg";
 import shield from "./Shield.svg";
@@ -23,9 +25,15 @@ import twitter from "./twitter.svg";
 import people01 from "./people01.png";
 import people02 from "./people02.png";
 import people03 from "./people03.png";
-import mainlogo from "./mainlogo.png"
+import mainlogo from "./mainlogo.png";
+import pickup from "./pickup.png"
+import delivery1 from "./delivery.png";
+import clothdonation from "./cloth-donation.png"
 export {
   airbnb,
+  delivery,
+  delivery1,
+  pickup,
   bill,
   binance,
   card,
@@ -39,10 +47,11 @@ export {
   star,
   menu,
   close,
+  clothdonation,
   google,
   apple,
   arrowUp,
- 
+ //heading,
   discount,
   facebook,
   instagram,

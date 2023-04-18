@@ -35,6 +35,33 @@ export const navLinks = [
   },
 ];
 
+
+
+export const work = [
+  {
+    id: "work-1",
+    icon: star,
+    title: "Pickup from you",
+    content:
+      "Enter the pickup location, and schedule a pickup.You can also choose to go for the drop off option in case you want to drop the donations yourself. ",
+  },
+  {
+    id: "work-2",
+    icon: shield,
+    title: "Donate from your doorstep",
+    content:
+      "We will come to your doorstep to pick up the donations in the chosen slot and deliver them to the NGO where they can be given a new life..",
+  },
+  {
+    id: "work-3",
+    icon: send,
+    title: "Balance Transfer",
+    content:
+      "A balance transfer credit card can save you a lot of money in interest charges.",
+  },
+];
+
+
 export const features = [
   {
     id: "feature-1",

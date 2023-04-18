@@ -15,6 +15,7 @@ import Footer from "./components/Footer"
 import Reward from "./components/Reward"
 import Stats from "./components/Stats"
 import About1 from "./components/About1"
+import Business from "./components/Business"
 import Contact1 from "./components/Contact1"
 import './App.css';
 import styles from "./style"
@@ -39,13 +40,15 @@ function App() {
 
           <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
               <div className={`${styles.boxWidth}`}>
+              <Stats/>
+              <Business/>
                 <Campaign/>
                <Involved/>
                <Reward/>
                <About1/>
                <Contact1/>
                <CTA/>
-               <Stats/>
+             
               </div>
           </div>
     </div>
