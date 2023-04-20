@@ -2,7 +2,7 @@ import React from 'react'
 import {bag,shoes,cloth,stationary,furniture} from "../assets"
 const Donate = () => {
   return (
-   <section>
+   <section className=' bg-discount-gradient'>
          <div className='flex justify-center items-center text-gradient mb-20 '>
                 <h1 className='font-poppins font-semibold xs:text-[40px] text-[30px] xs:leading-[53px] leading-[43px]'>DONATE ALMOST ANYTHING</h1>
                

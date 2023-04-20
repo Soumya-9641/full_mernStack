@@ -33,12 +33,20 @@ import cloth from "./cloth.png";
 import bag from "./bag.png";
 import shoes from "./shoes.png"
 import furniture from "./furniture.png";
-import stationary from "./sationary.png"
+import stationary from "./sationary.png";
+import spend from "./spend.png"
+import ngo from "./ngo.png";
+import ngo1 from "./ngo1.png";
+import poster from "./poster.png"
 import clothdonation from "./cloth-donation.png"
 export {
   airbnb,
   delivery,
   delivery1,
+  ngo,
+  ngo1,
+  spend,
+  poster,
   cloth,
   shoes,
   bag,
