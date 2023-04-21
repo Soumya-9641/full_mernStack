@@ -34,9 +34,20 @@ import bag from "./bag.png";
 import shoes from "./shoes.png"
 import furniture from "./furniture.png";
 import stationary from "./sationary.png";
+import icon1 from "./icon1.png";
+import icon2 from "./icon2.png";
+import icon3 from "./icon3.png";
+import icon4 from "./icon4.png";
+import icon5 from "./icon5.png";
+import icon6 from "./icon6.png";
 import spend from "./spend.png"
 import ngo from "./ngo.png";
 import ngo1 from "./ngo1.png";
+import ngo2 from "./ngo2.png";
+import ngo3 from "./ngo3.png";
+import ngo4 from "./ngo4.png";
+import ngo5 from "./ngo5.png";
+
 import poster from "./poster.png"
 import clothdonation from "./cloth-donation.png"
 export {
@@ -45,6 +56,17 @@ export {
   delivery1,
   ngo,
   ngo1,
+  ngo2,
+  ngo3,
+  ngo4,
+  ngo5,
+
+  icon1,
+  icon2,
+  icon3,
+  icon4,
+  icon5,
+  icon6,
   spend,
   poster,
   cloth,

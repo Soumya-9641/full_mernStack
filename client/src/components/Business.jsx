@@ -4,7 +4,7 @@ import {delivery1,pickup,rewards} from "../assets"
 const Business = () => {
   return (
     <div>
-        <div className='flex justify-center items-center text-gradient '>
+        <div className='flex justify-center items-center text-gradient  border-b-[1px] border-b-[#70b3ad]'>
                 <h1 className='font-poppins font-semibold xs:text-[40px] text-[30px] xs:leading-[53px] leading-[43px]'>How we works</h1>
                
         </div>
