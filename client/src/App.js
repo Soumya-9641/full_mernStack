@@ -3,16 +3,24 @@ import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 import Help1 from "./components/Help1"
 import Help2 from "./components/Help2"
-
+import Login from "./components/Login"
 import Help from "./components/Help"
 import Why from "./components/Why";
+import Booking from "./components/Booking"
 import Ngo from "./components/Ngo"
 import Footer from "./components/Footer"
+import About from "./components/About"
+import Signup from "./components/Signup"
+import Logout from "./components/Logout"
+import Error from "./components/Error"
 import Stats from "./components/Stats"
-
 import Business from "./components/Business"
-
+import Contact from "./components/Contact"
 import Donate from "./components/Donate"
+import Hero1 from "./components/Hero1"
+import Campaign from "./components/Campaign"
+import Involved from "./components/Involved"
+import Reward from "./components/Reward"
 import './App.css';
 import styles from "./style"
 import React,{createContext} from "react"
@@ -28,15 +36,17 @@ function App() {
               <Navbar/>
             </div>
           </div>
-          <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+          {/* <div className={`${styles.paddingX} ${styles.flexCenter}`}>
             <div className={`${styles.boxWidth}`}>
               <Hero/>
             </div>
-          </div>
+          </div> */}
 
           <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
               <div className={`${styles.boxWidth}`}>
-              <Stats/>
+
+              <Routes>
+        <Route exact path="/" element={<><Hero1/><Stats/>
               <Business/>
               <Donate/>
               <Help/>
@@ -44,7 +54,22 @@ function App() {
               <Help2/>
               <Why/>
               <Ngo/>
-              <Footer/>
+              <Footer/></>}/>
+        
+           
+        
+        <Route path="/contact" element={<>  <Contact/></>} />
+        <Route path="/about" element={<>  <About/></>} />
+        <Route path="/login" element={<>   <Login/></>} />
+        <Route path="/signup" element={<> <Signup/></>} />
+        <Route path="/logout" element={<> <Logout/></>} />
+        <Route path="/booking" element={<> <Booking/></>} />
+        <Route path="/campaign" element={<> <Campaign/><Footer/></>} />
+        <Route path="/involved" element={<> <Involved/></>} />
+        <Route path="/reward" element={<> <Reward/></>} />
+        <Route  path="*" element={<>  <Error/></>} />
+      
+        </Routes>
              
               </div>
           </div>

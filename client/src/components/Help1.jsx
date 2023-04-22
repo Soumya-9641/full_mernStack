@@ -12,7 +12,7 @@ const Help1 = () => {
             <p className={`${styles.paragraph} max-w-[470px] mt-5 mb-10`}>
             When you shop here, you spread happiness in the loves of others that supports grassroots NGOs, underprivileged artisans, and sustainability ventures, and provides them with sustainable income
             </p>
-            <Button className='mt-10'/>
+            <Button  className='mt-10'/>
         </div>
         <div className={layout.sectionImg}>
                 <img src={ngo} className='w-[60%] h-[60%]' alt="" />

@@ -1,36 +1,44 @@
 import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
-
+import Login from "../components/Login"
 export const navLinks = [
   {
     id: "home",
+    link:"/",
     title: "Home",
   },
   {
     id: "contact",
+    link:"/contact",
     title: "Contact",
   },
   {
     id: "about",
+    link:"/about",
     title: "About",
   },
   {
     id: "login",
+    link:"/login",
     title: "Login",
   },
   {
     id: "login",
+    link:"/login",
     title: "Login",
   },
   {
     id: "campaign",
+    link:"/campaign",
     title: "Upcoming Campaign",
   },
   {
     id: "involved",
+    link:"/involved",
     title: "Get Involved",
   },
   {
     id: "rewards",
+    link:"/rewards",
     title: "Rewards",
   },
 ];

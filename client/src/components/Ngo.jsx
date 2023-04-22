@@ -15,12 +15,14 @@ const Ngo = () => {
     <div className='m-10 flex items-center flex-col'>
       <div className={`${styles.flexCenter} w-[140px] h-[140px] rounded-3xl bg-blue-gradient p-[2px] cursor-pointer mt-10`}>
           <div className={`${styles.flexCenter} bg-blue-gradient2 flex-col w-[100%] h-[100%] rounded-3xl`}>
-                  <img className='w-[100%] h-[100%] object-contain' src={ngo1} alt="" />
+                  <img className='w-[100%] h-[100%] object-contain ' src={ngo1} alt="" />
+                  
+                            
                   {/* <div className='absolute z-[0] right-1/2 bottom-40 w-[50%] h-[40%] rounded-full white__gradient'/>
                     <div className='absolute z-[1] -right-1/2 top-40 w-[50%] h-[40%] rounded-full pink__gradient'/>
-                    <div className='absolute z-[0] -left-1/2 right-80 w-[60%] h-[60%] rounded-full blue__gradient'/>
+                    <div className='absolute z-[0] -left-1/2 right-80 w-[60%] h-[60%] rounded-full blue__gradient'/> */}
 
-                    <div className='absolute z-[0] right-1/2 bottom-40 w-[50%] h-[40%] rounded-full white__gradient'/>
+                    {/* <div className='absolute z-[0] right-1/2 bottom-40 w-[50%] h-[40%] rounded-full white__gradient'/>
                     <div className='absolute z-[1] -right-1/2 top-40 w-[50%] h-[40%] rounded-full pink__gradient'/>
                     <div className='absolute z-[0] -right-1/2 left-80 w-[60%] h-[60%] rounded-full blue__gradient'/> */}
           </div>
