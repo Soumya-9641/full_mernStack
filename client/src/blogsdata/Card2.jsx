@@ -1,26 +1,26 @@
 import React from 'react'
 import styles from '../style'
-const Card1 = () => {
+const Card2 = () => {
   return (
     <div  className='mt-10 mb-10'>
                   
-                  <h1 className='font-poppins font-semibold xs:text-[40px] text-[30px] xs:leading-[53px] leading-[43px] text-gradient2 mb-4 '>#Virtual Classroom</h1>
+                  <h1 className='font-poppins font-semibold xs:text-[40px] text-[30px] xs:leading-[53px] leading-[43px] text-gradient2 mb-4 '>#KnotsOfCare by Nautica</h1>
                   
             
             
-               <img className='w-[100%]' src="https://media.istockphoto.com/id/1466767367/vector/back-to-school-template-with-pencils-and-clouds-online-education-banner-ad-landing-page-or.jpg?s=612x612&w=0&k=20&c=NUc2JygkrYIkTHh52vush710egDuy8Qc9J_hd48_ug0=" alt="" />
+               <img className='w-[100%]' src="https://sadsindia.org/wp-content/uploads/2020/05/NC-BANNERSArtboard-1_1920x800-1070x446.jpg" alt="" />
                
                <p className={`${styles.paragraph2} max-w-[1500px] mt-5`}>
-               Why stash your old phone, laptops and tablets in a drawer when they could be help underprivileged kids continue their education online?
+               Why stash your old clothes, shirts and pants in a drawer when they could be help underprivileged people?
                <br />
                <br />
-               While our NGO partners are offering online courses to help aid the education of underprivileged kids, lack of ready access to a mobile phones means they can’t take these lessons live.
+               While our NGO partners are offering services to serve clothes to needy people.
                <br />
                <br />
-               On the other side, millions of phones are thrown into trash—even more are hiding away in store rooms. Give your phones new life and help kids attend their classes online.
+               On the other side, millions of clothes are thrown into trash—even more are hiding away in store rooms. Give your clothes new life and help people.
                <br />
                <br />
-               <p className='font-bold font-serif'>Take part in our campaign #VirtualClassroom and put your old mobiles, laptops, tablets to good use.</p>
+               <p className='font-bold font-serif'>Take part in our campaign #VirtualClassroom and put your old clothes, shirts, pants to good use.</p>
                
                 </p>
                 <div>
@@ -29,7 +29,7 @@ const Card1 = () => {
                             
                         </div>
                         <div className='text-white'>
-                            <p className={`${styles.paragraph2}`}>Take part in #VirtualClassroom campaign by following the below steps:</p>
+                            <p className={`${styles.paragraph2}`}>Take part in #KnotsOfCare by Nautica campaign by following the below steps:</p>
                             <ul className='mb-4'>
                                 <li>1. Click on a
                                <a className='text-gradient' href="/"> BOOK NOW.</a></li>
@@ -80,13 +80,10 @@ const Card1 = () => {
                         </div>
                 </div>
               
-               <img className='w-[100%]' src="https://sadsindia.org/wp-content/uploads/2020/11/Virtual-Classroom-sads-india.jpg" alt="" />
-               
-               
                
                
             </div>
   )
 }
 
-export default Card1
+export default Card2

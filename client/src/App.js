@@ -10,6 +10,10 @@ import Booking from "./components/Booking"
 import Ngo from "./components/Ngo"
 import Footer from "./components/Footer"
 import Card1 from "./blogsdata/Card1"
+import Card2 from "./blogsdata/Card2"
+import Card3 from "./blogsdata/Card3"
+import Card4 from "./blogsdata/Card4"
+import Card5 from "./blogsdata/Card5"
 import About from "./components/About"
 import Signup from "./components/Signup"
 import Logout from "./components/Logout"
@@ -65,7 +69,11 @@ function App() {
         <Route path="/signup" element={<> <Signup/></>} />
         <Route path="/logout" element={<> <Logout/></>} />
         <Route path="/booking" element={<> <Booking/></>} />
-        <Route path="/blogsdata/card1" element={<> <Card1/></>} />
+        <Route path="/blogsdata/Card1" element={<> <Card1/></>} />
+        <Route path="/blogsdata/Card2" element={<> <Card2/></>} />
+        <Route path="/blogsdata/Card3" element={<> <Card3/></>} />
+        <Route path="/blogsdata/Card4" element={<> <Card4/></>} />
+        <Route path="/blogsdata/Card5" element={<> <Card5/></>} />
         <Route path="/campaign" element={<> <Campaign/><Footer/></>} />
         <Route path="/involved" element={<> <Involved/></>} />
         <Route path="/reward" element={<> <Reward/></>} />
