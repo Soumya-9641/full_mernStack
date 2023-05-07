@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from "../style"
+import { Link } from 'react-router-dom'
 import {ngo1,ngo2,ngo3,ngo4,ngo5} from "../assets"
 const Ngo = () => {
   return (
@@ -12,6 +13,7 @@ const Ngo = () => {
 
     <div className='flex flex-col'>
     <div className='flex flex-col justify-center items-center lg:flex-row lg:m-3 lg:justify-between usitems-center p-10'>
+    <Link to="https://give.do/discover/ACQ/bachpan-foundation/" target='__blank'>
     <div className='m-10 flex items-center flex-col'>
       <div className={`${styles.flexCenter} w-[140px] h-[140px] rounded-3xl bg-blue-gradient p-[2px] cursor-pointer mt-10`}>
           <div className={`${styles.flexCenter} bg-blue-gradient2 flex-col w-[100%] h-[100%] rounded-3xl`}>
@@ -35,7 +37,8 @@ const Ngo = () => {
                           
                       </p>
     </div>
-
+    </Link>
+    <Link to="https://sadsindia.org/">
     <div className='m-10 flex items-center flex-col'>
       <div className={`${styles.flexCenter} w-[140px] h-[140px] rounded-3xl bg-blue-gradient p-[2px] cursor-pointer mt-10`}>
           <div className={`${styles.flexCenter} bg-blue-gradient2 flex-col w-[100%] h-[100%] rounded-3xl`}>
@@ -50,6 +53,8 @@ const Ngo = () => {
                           
                       </p>
     </div>
+    </Link>
+    <Link to="https://carlsbaded.org/kids-care/">
     <div className='m-10 flex items-center flex-col'>
       <div className={`${styles.flexCenter} w-[140px] h-[140px] rounded-3xl bg-blue-gradient p-[2px] cursor-pointer mt-10`}>
           <div className={`${styles.flexCenter} bg-blue-gradient2 flex-col w-[100%] h-[100%] rounded-3xl`}>
@@ -64,12 +69,14 @@ const Ngo = () => {
                           
                       </p>
     </div>
+    </Link>
     </div>
 
 
 
 
     <div className='flex flex-col justify-center items-center lg:flex-row lg:m-3 lg:justify-between usitems-center p-10'>
+    <Link to="https://www.guidestar.org/profile/27-0086527">
     <div className='m-10 flex items-center flex-col'>
       <div className={`${styles.flexCenter} w-[140px] h-[140px] rounded-3xl bg-blue-gradient p-[2px] cursor-pointer mt-10`}>
           <div className={`${styles.flexCenter} bg-blue-gradient2   flex-col w-[100%] h-[100%] rounded-3xl`}>
@@ -94,7 +101,8 @@ const Ngo = () => {
                           
                       </p>
     </div>
-
+    </Link>
+    <Link to="https://albasar.org.uk/">
     <div className='m-10 flex items-center flex-col'>
       <div className={`${styles.flexCenter} w-[140px] h-[140px] rounded-3xl bg-blue-gradient p-[2px] cursor-pointer mt-10`}>
           <div className={`${styles.flexCenter} bg-blue-gradient2  flex-col w-[100%] h-[100%] rounded-3xl`}>
@@ -109,6 +117,7 @@ const Ngo = () => {
                           
                       </p>
     </div>
+    </Link>
    
     </div>
     </div>

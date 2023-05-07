@@ -9,6 +9,7 @@ import Why from "./components/Why";
 import Booking from "./components/Booking"
 import Ngo from "./components/Ngo"
 import Footer from "./components/Footer"
+import Card1 from "./blogsdata/Card1"
 import About from "./components/About"
 import Signup from "./components/Signup"
 import Logout from "./components/Logout"
@@ -64,6 +65,7 @@ function App() {
         <Route path="/signup" element={<> <Signup/></>} />
         <Route path="/logout" element={<> <Logout/></>} />
         <Route path="/booking" element={<> <Booking/></>} />
+        <Route path="/blogsdata/card1" element={<> <Card1/></>} />
         <Route path="/campaign" element={<> <Campaign/><Footer/></>} />
         <Route path="/involved" element={<> <Involved/></>} />
         <Route path="/reward" element={<> <Reward/></>} />
