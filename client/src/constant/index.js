@@ -22,11 +22,6 @@ export const navLinks = [
     title: "Login",
   },
   {
-    id: "login",
-    link:"/login",
-    title: "Login",
-  },
-  {
     id: "campaign",
     link:"/campaign",
     title: "Upcoming Campaign",
@@ -35,6 +30,24 @@ export const navLinks = [
     id: "involved",
     link:"/involved",
     title: "Get Involved",
+    submenu:[
+        {
+          title:"Employee Engagement",
+          url:"/employee"
+        },
+        {
+          title:"NGO Partner",
+          url:"/ngo"
+        },
+        {
+          title:"Brand Partner",
+          url:"/brand"
+        },
+        {
+          title:"Volunteer",
+          url:"/volunteer"
+        },
+    ]
   },
   {
     id: "rewards",

@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import {navLinks} from "../constant/index"
+import Menu from './Menu'
 import {close , mainlogo,menu} from "../assets"
 import { light } from '@mui/material/styles/createPalette'
 //import 'bootstrap/dist/css/bootstrao.css';
@@ -12,13 +13,17 @@ const Navbar = () => {
     <nav className='w-full flex py-2 justify-between items-center navbar '>
         <img src={mainlogo} alt='donateking'  className='w-[150px] h-[150px]'/>
         <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
-             {navLinks.map((nav,index)=>(
+
+        {navLinks.map((menu, index) => {
+          return <Menu items={menu} key={index} />;
+        })}
+             {/* {navLinks.map((nav,index)=>(
               <li key={nav.id} className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length -1 ? `mr-0` : `mr-10`} text-white`} >
                     <a href={`${nav.link}`}>
                       {nav.title}
                     </a>
               </li>
-             ))}
+             ))} */}
         </ul>
 
         <div className='sm:hidden flex flex-1 justify-end items-center'>
@@ -28,13 +33,16 @@ const Navbar = () => {
                 <div className={`${toggle?`flex`:`hidden`} p-6 bg-black-gradient absolute
                  top-24 right-0 mx-4 my-2 min-w-[160px] rounded-xl sidebar`}>
                     <ul className='list-none flex flex-col justify-end items-center flex-1'>
-                  {navLinks.map((nav,index)=>(
+                    {navLinks.map((menu, index) => {
+                      return <Menu items={menu} key={index} />;
+                    })}
+                  {/* {navLinks.map((nav,index)=>(
                     <li key={nav.id} className={`font-poppins font-normal cursor-pointer text-[16px] ${index === navLinks.length -1 ? `mr-0` : `mb-4`} text-white`} >
                           <a href={`${nav.link}`}>
                             {nav.title}
                           </a>
                     </li>
-                  ))}
+                  ))} */}
         </ul>
                 </div>
         </div>
