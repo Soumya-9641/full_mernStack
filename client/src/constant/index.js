@@ -10,11 +10,43 @@ export const navLinks = [
     id: "contact",
     link:"/contact",
     title: "Contact",
+    submenu:[
+      {
+        title:"Personal Query",
+        url:"/personal"
+      },
+      {
+        title:"Corporate Query",
+        url:"/corporate"
+      },
+      {
+        title:"Smart donation drive",
+        url:"/donation"
+      }
+  ]
   },
   {
     id: "about",
     link:"/about",
-    title: "About",
+    title: "About Us",
+    submenu:[
+      {
+        title:"Our Story",
+        url:"/story"
+      },
+      {
+        title:"How We Work",
+        url:"/work"
+      },
+      {
+        title:"What we offer",
+        url:"/offer"
+      },
+      {
+        title:"Share points",
+        url:"/points"
+      }
+  ]
   },
   {
     id: "login",

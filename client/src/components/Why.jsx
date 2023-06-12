@@ -9,7 +9,7 @@ const Why = () => {
            
     </div>
     
-        <div  className='flex flex-col justify-center items-center lg:flex-row lg:m-3 lg:justify-between usitems-center bg-discount-gradient p-10'>
+        <div  className='flex flex-col justify-center items-center lg:flex-row lg:m-3 lg:justify-between bg-discount-gradient p-10'>
         <div className='flex flex-col items-center mb-8'>
             <img className='w-[100px] h-[100px] mb-4' src={icon1} alt="" />
             <h2 className='font-poppins font-semibold xs:text-[20px] text-[26px] xs:leading-[53px] leading-[21px] text-gradient uppercase ml-3 mb-2 lg:mb-0'>Super Convenient</h2>

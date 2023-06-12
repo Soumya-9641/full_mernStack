@@ -24,8 +24,19 @@ import Contact from "./components/Contact"
 import Donate from "./components/Donate"
 import Hero1 from "./components/Hero1"
 import Campaign from "./components/Campaign"
+import Points from "./components/Points"
 import Involved from "./components/Involved"
 import Reward from "./components/Reward"
+import Employee from "./components/Employee"
+import Personal from "./components/Personal"
+import Corporate from "./components/Corporate"
+import Smartdonation from "./components/Smartdonation"
+import Ngopartner from "./components/Ngopartner"
+import Brandpartner from "./components/Brandpartner"
+import Volunteer from "./components/Volunteer"
+import Work from "./components/Work"
+import Story from "./components/Story"
+import Offer from "./components/Offer"
 import './App.css';
 import styles from "./style"
 import React,{createContext} from "react"
@@ -74,6 +85,17 @@ function App() {
         <Route path="/blogsdata/Card3" element={<> <Card3/></>} />
         <Route path="/blogsdata/Card4" element={<> <Card4/></>} />
         <Route path="/blogsdata/Card5" element={<> <Card5/></>} />
+        <Route path="/points" element={<> <Points/></>} />
+        <Route path="/work" element={<> <Work/></>} />
+        <Route path="/offer" element={<> <Offer/></>} />
+        <Route path="/story" element={<> <Story/></>} />
+        <Route path="/ngo" element={<> <Ngopartner/></>} />
+        <Route path="/employee" element={<> <Employee/></>} />
+        <Route path="/brand" element={<> <Brandpartner/></>} />
+        <Route path="/volunteer" element={<> <Volunteer/></>} />
+        <Route path="/personal" element={<> <Personal/></>} />
+        <Route path="/corporate" element={<> <Corporate/></>} />
+        <Route path="/donation" element={<> <Smartdonation/></>} />
         <Route path="/campaign" element={<> <Campaign/><Footer/></>} />
         <Route path="/involved" element={<> <Involved/></>} />
         <Route path="/reward" element={<> <Reward/></>} />
