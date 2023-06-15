@@ -1,6 +1,7 @@
 //import { set } from 'mongoose'
 import React,{useState} from 'react'
 import { useNavigate} from 'react-router-dom'
+import "./login.css"
 const Signup = () => {
   const navigate = useNavigate()
    const [name, setName] = useState("")
@@ -35,7 +36,7 @@ const Signup = () => {
       console.log(e.target.value)
   }
   }
-  const handleClick=async (e)=>{
+  const handleSubmit=async (e)=>{
     e.preventDefault();
 
     const user = {name,email,phone,work,password,cpassword};
@@ -66,43 +67,87 @@ const Signup = () => {
  }
   return (
     <>
-      <section className="text-gray-600 body-font">
-  <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
-    <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-      <img className="h-3/5" src="https://images.unsplash.com/photo-1611643378160-39d6dd915b69?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=htmlFormat&fit=crop&w=765&q=80" alt="img" srcSet="" />
-    </div>
-    
-    <form method='POST' className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-      <h2 className="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
-      <div className="relative mb-4">
-        <label htmlFor="full-name" className="leading-7 text-sm text-gray-600">Full Name</label>
-        <input value={name} onChange={handleChange} type="text" id="name" name="name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
-      </div>
-      <div className="relative mb-4">
-        <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
-        <input value={email} onChange={handleChange} type="email" id="email" name="email" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" autoComplete='off'/>
-      </div>
-      <div className="relative mb-4">
-        <label htmlFor="work" className="leading-7 text-sm text-gray-600">Work</label>
-        <input value={work} onChange={handleChange} type="work" id="work" name="work" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" autoComplete='off'/>
-      </div>
-      <div className="relative mb-4">
-        <label htmlFor="phone" className="leading-7 text-sm text-gray-600">Contact</label>
-        <input value={phone} onChange={handleChange} type="contact" id="phone" name="phone" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" autoComplete='off'/>
-      </div>
-      <div className="relative mb-4">
-        <label htmlFor="password" className="leading-7 text-sm text-gray-600">Password</label>
-        <input value={password} onChange={handleChange} type="password" id="password" name="password" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" autoComplete='off'/>
-      </div><div className="relative mb-4">
-        <label htmlFor="password" className="leading-7 text-sm text-gray-600">Confirm Password</label>
-        <input value={cpassword} onChange={handleChange} type="password" id="cpassword" name="cpassword" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" autoComplete='off'/>
-      </div>
-      <button type='submit' onClick={handleClick} className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-      <p className="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
-    
-    </form>
+      <div className='App'>
+
+      
+<form className="form" onSubmit={handleSubmit}>
+  <div className="input-container">
+    <label className="label">Username: </label>
+    <input
+      type="text"
+      name="name"
+      className="input"
+      placeholder="Username"
+      value={name}
+      onChange={handleChange}
+    />
   </div>
-</section>
+  <div className="input-container">
+    <label className="label">Email: </label>
+    <input
+      type="text"
+      name="email"
+      className="input"
+      placeholder="Username"
+      value={email}
+      onChange={handleChange}
+    />
+  </div>
+  <div className="input-container">
+    <label className="label">Work: </label>
+    <input
+      type="text"
+      name="work"
+      className="input"
+      placeholder="Username"
+      value={work}
+      onChange={handleChange}
+    />
+  </div>
+  <div className="input-container">
+    <label className="label">Contact: </label>
+    <input
+      type="contact"
+      name="contact"
+      className="input"
+      placeholder="Username"
+      value={phone}
+      onChange={handleChange}
+    />
+  </div>
+  <div className="input-container">
+    <label className="label">Password: </label>
+    <input
+      type="password"
+      name="password"
+      className="input"
+      placeholder="Username"
+      value={password}
+      onChange={handleChange}
+    />
+  </div>
+  <div className="input-container">
+    <label className="label">Confirm Password: </label>
+    <input
+      type="password"
+      name="cpassword"
+      className="input"
+      placeholder="Password"
+      value={cpassword}
+      onChange={handleChange}
+    />
+    <a href="/" className="link forgotten-password">
+      Forgot password?
+    </a>
+  </div>
+  <button type="submit" id="login-btn">
+    Login
+  </button>
+</form>
+<div className='mt-10'>
+  <h6 className='font font-poppins text-gray-300'>Already have an account?<a href="/login"><span className='text-pink-300 cursor-pointer'>Log In</span></a> </h6>
+</div>
+</div>
     </>
   )
 }

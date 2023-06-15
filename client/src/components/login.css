@@ -1,0 +1,103 @@
+
+.form {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    width:30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: flex-center;
+  }
+  .App {
+    height: 700px;
+    
+    min-height: 100vh;
+    background-image: url("https://images2.alphacoders.com/238/238870.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: sans-serif;
+  }
+  @media (max-width: 767px) {
+    /* CSS rules for mobile */
+    .form{
+        width: 60%;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* CSS rules for tablet */
+    .form{
+        width: 60%;
+    }
+  }
+  
+  .input-container {
+    margin: 10px auto;
+    display: flex;
+    margin-right: 30%;
+    flex-direction: column;
+    justify-content: flex-center;
+    align-items: flex-start;
+    font-size: 14px;
+  }
+  
+  .label {
+    margin-bottom: 5px;
+  }
+  
+  .input {
+    padding: 5px 15px 5px 5px;
+    width: 130%;
+    flex: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .forgotten-password {
+    align-self: flex-end;
+    margin-top: 7px;
+  }
+  
+  #login-btn {
+    align-self: center;
+    padding: 7px 30px;
+    margin-top: 30px;
+    border: none;
+    color: #fff;
+    background-color: rgb(255, 39, 147);
+    box-shadow: 2px 2px 2px rgb(204, 4, 121);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in;
+  }
+  
+  #login-btn:hover {
+    background-color: rgb(204, 4, 121);
+    box-shadow: none;
+    transform: translateX(1px) translateY(1px);
+  }
+  
+  .signup-label {
+    position: relative;
+    bottom: -10px;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: rgb(204, 4, 121);
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  

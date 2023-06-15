@@ -1,5 +1,7 @@
 import React ,{useState} from 'react'
 import { NavLink ,useNavigate} from 'react-router-dom'
+import { background } from '../assets';
+import "./login.css"
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
@@ -12,7 +14,7 @@ const Login = () => {
         setPassword(e.target.value)
       }
   }
-  const handleClick=async (e)=>{
+  const handleSubmit=async (e)=>{
           e.preventDefault();
           //const user = {email,password}
           const res = await fetch("/login",{
@@ -36,30 +38,43 @@ const Login = () => {
   }
   return (
     <>
-    <section className="text-black-300 body-font">
-      <div className="container mx-auto flex flex-wrap flex-col md:flex-row items-center px-10 py-24 my-24">
-          <div className="lg:w-2/6 md:w-1/2 lg:pr-16 md:pr-0 pr-0">
-             <img src="https://i.pinimg.com/564x/9e/ec/e2/9eece2da8a0cfb34185fad3fc830026d.jpg" alt="img" srcSet="" />
-          </div>
-          
-          <form  method="POST" className="lg:w-2/5 md:w-1/2rounded-lg p-10 bg-gray-300 ">
-              <h2 className="text-2xl mb-4">Log In</h2>
-             <div className="mb-2">
-               <label htmlFor="email" className="">Your Email</label>
-                  <input value={email} type="text" onChange={handleChange} id="email" name="email" className=" rounded-sm w-full bg-white  border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" autoComplete='off'/>
-              </div>
-              <div className="mb-2">
-                  <label htmlFor="password" className="">Password</label>
-                   <input value={password} type="password" onChange={handleChange} id="password" name="password" className="w-full rounded-sm  bg-white  border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" autoComplete='off'/>
-               </div>
-               <button onClick={handleClick} type='submit'  className="mb-2 mt-4 bg-indigo-600 px-8 py-2 rounded-lg hover:bg-indigo-300 border-0 focus:outline-none text-lg lg:ml-48 md:ml-16">Button</button>
-              
-              <NavLink to="/signup"> <p className="text-md">Sign up</p></NavLink>
-         
-          </form>
-          
+      <div className='App'>
+
+      
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="input-container">
+          <label className="label">Username: </label>
+          <input
+            type="text"
+            name="email"
+            className="input"
+            placeholder="Username"
+            value={email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="input-container">
+          <label className="label">Password: </label>
+          <input
+            type="password"
+            name="password"
+            className="input"
+            placeholder="Password"
+            value={password}
+            onChange={handleChange}
+          />
+          <a href="/" className="link forgotten-password">
+            Forgot password?
+          </a>
+        </div>
+        <button type="submit" id="login-btn">
+          Login
+        </button>
+      </form>
+      <div className='mt-10'>
+        <h6 className='font font-poppins text-gray-300'>Dont have an account?<a href="/signup"><span className='text-pink-300 cursor-pointer'>Sign Up</span></a> </h6>
       </div>
-      </section>
+      </div>
     </>
   )
 }

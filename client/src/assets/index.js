@@ -65,9 +65,11 @@ import surplusstock from "./surplusstock.jpg"
 import gift from "./gift.jpg";
 import childsupport from "./Child-Support.jpg"
 import volunteer from "./volunteer.png"
+import background from "./background.jpg"
 export {
   airbnb,
   delivery,
+  background,
   delivery1,
   points,
   smartdonationbox,
