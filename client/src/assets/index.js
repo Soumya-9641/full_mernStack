@@ -42,6 +42,7 @@ import bag from "./bag.png";
 import shoes from "./shoes.png"
 import furniture from "./furniture.png";
 import stationary from "./sationary.png";
+import story from './story.jpg'
 import icon1 from "./icon1.png";
 import icon2 from "./icon2.png";
 import icon3 from "./icon3.png";
@@ -73,6 +74,7 @@ export {
   delivery1,
   points,
   smartdonationbox,
+  story,
   volunteer,
   childsupport,
   surplusstock,

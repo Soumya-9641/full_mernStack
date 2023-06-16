@@ -85,7 +85,7 @@ function App() {
         <Route path="/blogsdata/Card3" element={<> <Card3/></>} />
         <Route path="/blogsdata/Card4" element={<> <Card4/></>} />
         <Route path="/blogsdata/Card5" element={<> <Card5/></>} />
-        <Route path="/points" element={<> <Points/></>} />
+        <Route path="/points" element={<> <Points/><Footer/></>} />
         <Route path="/work" element={<> <Work/></>} />
         <Route path="/offer" element={<> <Offer/></>} />
         <Route path="/story" element={<> <Story/></>} />
