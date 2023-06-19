@@ -15,6 +15,9 @@
     
     min-height: 100vh;
     background-image: url("https://images2.alphacoders.com/238/238870.jpg");
+    border-radius: 4px;
+    box-shadow: 0px 0px 0px 8px rgba(201, 94, 49, 0.3);    
+    opacity: 0.8;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;

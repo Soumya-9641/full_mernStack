@@ -81,11 +81,7 @@ export const navLinks = [
         },
     ]
   },
-  {
-    id: "rewards",
-    link:"/rewards",
-    title: "Rewards",
-  },
+  
 ];
 
 

@@ -9,6 +9,7 @@ import right from "./right.png"
 //import logo from "./logo.svg";
 import quotes from "./quotes.svg";
 import delivery from "./delivery.svg"
+import bag1 from "./bag.svg"
 //import heading from "./heading.svg";
 import robot from "./robot.png";
 import send from "./Send.svg";
@@ -65,6 +66,7 @@ import smartdonationbox from "./smartdonationbox.jpg"
 import surplusstock from "./surplusstock.jpg"
 import gift from "./gift.jpg";
 import childsupport from "./Child-Support.jpg"
+import donate from "./donate.png"
 import volunteer from "./volunteer.png"
 import background from "./background.jpg"
 export {
@@ -72,6 +74,8 @@ export {
   delivery,
   background,
   delivery1,
+  donate,
+  bag1,
   points,
   smartdonationbox,
   story,

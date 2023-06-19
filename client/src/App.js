@@ -17,6 +17,8 @@ import Card5 from "./blogsdata/Card5"
 import About from "./components/About"
 import Signup from "./components/Signup"
 import Logout from "./components/Logout"
+import Pickupquantity from "./components/Pickupquantity"
+import Finalbooking from "./components/Finalbooking"
 import Error from "./components/Error"
 import Stats from "./components/Stats"
 import Business from "./components/Business"
@@ -57,7 +59,10 @@ function App() {
               <Hero/>
             </div>
           </div> */}
-
+          <Routes>
+          <Route path="/login" element={<>   <Login/></>} />
+          <Route path="/signup" element={<> <Signup/></>} />
+          </Routes>
           <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
               <div className={`${styles.boxWidth}`}>
 
@@ -76,8 +81,8 @@ function App() {
         
         <Route path="/contact" element={<>  <Contact/></>} />
         <Route path="/about" element={<>  <About/></>} />
-        <Route path="/login" element={<>   <Login/></>} />
-        <Route path="/signup" element={<> <Signup/></>} />
+        
+        
         <Route path="/logout" element={<> <Logout/></>} />
         <Route path="/booking" element={<> <Booking/></>} />
         <Route path="/blogsdata/Card1" element={<> <Card1/></>} />
@@ -87,24 +92,27 @@ function App() {
         <Route path="/blogsdata/Card5" element={<> <Card5/></>} />
         <Route path="/points" element={<> <Points/><Footer/></>} />
         <Route path="/work" element={<> <Work/></>} />
+        <Route path="/pickupouantity" element={<> <Pickupquantity/></>} />
         <Route path="/offer" element={<> <Offer/></>} />
         <Route path="/story" element={<> <Story/></>} />
         <Route path="/ngo" element={<> <Ngopartner/></>} />
         <Route path="/employee" element={<> <Employee/></>} />
         <Route path="/brand" element={<> <Brandpartner/></>} />
         <Route path="/volunteer" element={<> <Volunteer/></>} />
+        <Route path="/finalbooking" element={<> <Finalbooking/></>} />
         <Route path="/personal" element={<> <Personal/><Footer/></>} />
         <Route path="/corporate" element={<> <Corporate/></>} />
         <Route path="/donation" element={<> <Smartdonation/></>} />
         <Route path="/campaign" element={<> <Campaign/><Footer/></>} />
         <Route path="/involved" element={<> <Involved/></>} />
         <Route path="/reward" element={<> <Reward/></>} />
-        <Route  path="*" element={<>  <Error/></>} />
+        {/* <Route  path="*" element={<>  <Error/></>} /> */}
       
         </Routes>
              
               </div>
           </div>
+          
     </div>
      
        {/* <Routes>
