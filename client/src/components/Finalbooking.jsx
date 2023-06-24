@@ -1,6 +1,52 @@
-import React from 'react'
+import { Details } from '@material-ui/icons';
+import React,{useState} from 'react'
 import {  TbTruckDelivery } from 'react-icons/tb';
 const Finalbooking = () => {
+          const [details, setDetails] = useState({
+              date: "",
+              timeslot: "",
+              name: "",
+              email: "",
+              flatno: "",
+              city: "",
+              pincode:"",
+              address: "",
+              note: ""
+
+          })
+          const handleChange=(e)=>{
+                const {name,value}=e.target;
+                setDetails((prev)=>{
+                  return {...prev,[name]:value};
+                })
+          }
+         // console.log(details)
+          const handleSubmit=async (e)=>{
+             e.preventDefault();
+             const payments = {details};
+    const res = await fetch("/payment",{
+      method:"POST",
+      headers:{
+        "Content-Type" : "application/json"
+      },
+
+      body:JSON.stringify(payments)
+    });
+    const data=await res.json();
+    
+    console.log(data);
+              //console.log(details)
+              setDetails({ date: "",
+              timeslot: "",
+              name: "",
+              email: "",
+              flatno: "",
+              city: "",
+              pincode:"",
+              address: "",
+              note: ""
+})
+          }
   return (
     <>
      
@@ -16,21 +62,21 @@ const Finalbooking = () => {
                 <h2 className="text-gray-900 text-lg font-medium title-font mb-5"> CHOOSE A PICKUP SLOT</h2>
                 <div className="relative mb-4">
                    
-                    <input type="text" id="full-name" name="full-name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Enter exact date' autoComplete='off'/>
+                    <input onChange={handleChange} value={details.date} type="text" id="date" name="date" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Enter exact date' autoComplete='off'/>
                 </div>
                 <div className="relative mb-4">
                    
-                    <input type="text" id="full-name" name="full-name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Enter time slot' autoComplete='off'/>
+                    <input onChange={handleChange} value={details.timeslot} type="text" id="timeslot" name="timeslot" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Enter time slot' autoComplete='off'/>
                 </div>
                 
                 </div>
                 
-                <hr class="w-64 h-1 lg:ml-40 ml-60 my-8 bg-blue-gradient border-0 rounded dark:bg-gray-700"/>
+                <hr className="w-64 h-1 lg:ml-40 ml-60 my-8 bg-blue-gradient border-0 rounded dark:bg-gray-700"/>
                 <div className="  bg-slate-700 rounded-lg p-8 flex flex-col md:ml-auto lg:w-[100%] w-[400px] mt-10 md:mt-0">
                 <h2 className="text-gray-900 text-lg font-medium title-font mb-2"> NOTES FOR PICKUP PERSON (Optional)</h2>
                 <p className='font-poppins text-gray-200 text-[10px] mb-4'>* We'll do our best to pass along your instructions to our Pickup Partner. Compliance isn't guaranteed.</p>
                 <div className="relative mb-4">
-                 <textarea className='p-4 rounded-lg text-gray-700' name="note" placeholder='enter a note for pickup person' id="" cols="60" rows="3"></textarea>
+                 <textarea onChange={handleChange} value={details.note} className='p-4 rounded-lg text-gray-700' name="note" placeholder='enter a note for pickup person' id="" cols="56" rows="3"></textarea>
                 </div>
                 
                 
@@ -41,24 +87,24 @@ const Finalbooking = () => {
                 <h2 className="text-gray-900 text-lg font-medium title-font mb-5">Donor details</h2>
                 <div className="relative mb-4">
                    
-                    <input type="text" id="full-name" name="full-name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Name' autoComplete='off'/>
+                    <input onChange={handleChange} value={details.name} type="text" id="name" name="name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Name' autoComplete='off'/>
                 </div>
                 <div className="relative mb-4">
                     
-                    <input type="email" id="email" name="email" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Email' autoComplete='off'/>
+                    <input onChange={handleChange} value={details.email} type="email" id="email" name="email" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Email' autoComplete='off'/>
                 </div>
                 <div className="relative mb-4 flex flex-row">
                     
-                    <input  type="email" id="email" name="email" className="mr-4 w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Flat door' autoComplete='off'/>
-                    <input type="email" id="email" name="email" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='city' autoComplete='off'/>
+                    <input onChange={handleChange} value={details.flatno}  type="text" id="flatno" name="flatno" className="mr-4 w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Flat door' autoComplete='off'/>
+                    <input onChange={handleChange} value={details.city} type="text" id="city" name="city" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='city' autoComplete='off'/>
                 </div>
                 <div className="relative mb-4">
                     
-                    <input type="email" id="email" name="email" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Pincode' autoComplete='off'/>
+                    <input onChange={handleChange} value={details.pincode} type="number" id="pincode" name="pincode" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Pincode' autoComplete='off'/>
                 </div>
                 <div className="relative mb-4">
                     
-                    <textarea className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" name="address" id="address" cols="42" rows="3" placeholder='full address'></textarea>
+                    <textarea onChange={handleChange} value={details.address} className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" name="address" id="address" cols="35" rows="3" placeholder='full address'></textarea>
                 </div>
                
                 </div>
@@ -66,23 +112,17 @@ const Finalbooking = () => {
 
 
                 <div className=" bg-slate-700 rounded-lg p-8 flex flex-col md:ml-auto lg:w-[100%] w-[400px] mt-10 md:mt-10">
-                <h2 className="text-gray-900 text-lg font-medium title-font mb-5">DONATION ITEMS</h2>
+              
                 <div className="relative mb-4">
                 <div className='flex flex-row justify-between mb-6 p-0 mx-4 rounded-xl bg-slate-700'>
-            <div className='flex flex-row items-center '>
-                <TbTruckDelivery className='w-[60px] h-[60px] ml-6 mt-0 mr-4'/>
-                <div className='flex flex-col'>
-                  <h6 className='font-poppins font-semibold text-gray-200'>Light pickup</h6>
-                  <p className='font-poppins text-gray-200 text-[15px]'>2 items -₹199</p>
-                </div>
-              </div>
+            
               
             </div>
                 </div>
                
                 <div className='flex flex-row w-[30%] lg:ml-40 ml-24 items-center bg-blue-gradient2 p-1 rounded-xl cursor-auto'>
                   <a href="/finalbooking">
-                      <button className='mr-1 flex items-center justify-center lg:ml-4 text-slate-900 px-6'>Pay Now </button>
+                      <button onClick={handleSubmit}  className='mr-1 flex items-center justify-center lg:ml-4 text-slate-900 px-6'>Pay Now </button>
                     </a>
               </div>
                 </div>

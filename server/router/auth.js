@@ -1,11 +1,13 @@
 const express = require("express");
 require("../db/connect")
 const User = require("../models/user")
+const Paymetdetails = require("../models/paymentdetails")
 const router = express.Router()
 const bcrypt = require("bcryptjs")
 const jwtoken =  require("jsonwebtoken")
 const authenticate = require("../middlewares/authenticate");
-
+const Pickup = require("../models/pickup")
+const service = require("../service.json")
 router.get("/",(req,res)=>{
     console.log("Call the middlewares")
     res.send("Hello World from router")
@@ -58,6 +60,21 @@ router.post("/register", async (req,res)=>{
         }catch(err){
             console.log(err)
         }
+})
+router.post("/payment",async(req,res)=>{
+            const{date, timeslot,name,email,flatno, city,pincode,address, note} =req.body;
+            if(!date || !timeslot || !name ||!email||!city||!flatno||!pincode||!address){
+                return res.status(403).json({error:"plz filled the field properly"})
+            }
+            try{
+                    const paymentdetails = new Paymetdetails({date, timeslot,name,email,flatno, city,pincode,address, note})
+                    await paymentdetails.save();
+                    res.status(201).json(paymentdetails)
+                    
+
+            }catch(err){
+                console.log(err);
+            }
 })
 
 //login
@@ -133,6 +150,32 @@ router.get("/logout",(req,res)=>{
     res.clearCookie("jwtoken",{path:"/"})
     res.status(200).send("Logout page called");
 })
+
   
+router.post("/bookinglocation", async (req,res)=>{
+    const {location,pickuptype}= req.body
+         if(!location || !pickuptype){
+             return res.status(403).json({error:"plz filled the field properly"})
+        }
+        try{
+           
+            const pickup = new Pickup({location,pickuptype})
+            await pickup.save()
+            res.status(201).json({message:"pickup  registered successfully"})
+           
+        
+        }catch(err){
+            console.log(err)
+        }
+})
+router.get("/pincode",async (req,res)=>{
+    try{
+        res.status(200).json(service);
+        console.log(service)
+    }catch(err){
+        console.log(err);
+    }
+})
+
 
 module.exports = router

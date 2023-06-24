@@ -19,6 +19,7 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(require('./router/auth'));
 
+
 //middlewares
 
 // const middlewares = (req,res,next)=>{

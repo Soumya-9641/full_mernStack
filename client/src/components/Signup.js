@@ -23,7 +23,7 @@ const Signup = () => {
      setWork(e.target.value)
     console.log(e.target.value)
   }
-    if(e.target.name==="phone"){
+    if(e.target.name==="contact"){
        setPhone(e.target.value)
       console.log(e.target.value)
     }
@@ -110,7 +110,7 @@ const Signup = () => {
       type="contact"
       name="contact"
       className="input"
-      placeholder="Username"
+      placeholder="Contact"
       value={phone}
       onChange={handleChange}
     />

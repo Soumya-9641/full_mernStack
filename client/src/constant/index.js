@@ -228,31 +228,38 @@ export const stats = [
 
 export const footerLinks = [
   {
+    id:"1",
     title: "Useful Links",
     links: [
       {
+        id:"11",
         name: "Content",
         link: "https://www.hoobank.com/content/",
       },
       {
+        id:"22",
         name: "How it Works",
         link: "https://www.hoobank.com/how-it-works/",
       },
       {
+        id:"33",
         name: "Create",
         link: "https://www.hoobank.com/create/",
       },
       {
+        id:"44",
         name: "Explore",
         link: "https://www.hoobank.com/explore/",
       },
       {
+        id:"55",
         name: "Terms & Services",
         link: "https://www.hoobank.com/terms-and-services/",
       },
     ],
   },
   {
+    id:"2",
     title: "Community",
     links: [
       {
@@ -278,6 +285,7 @@ export const footerLinks = [
     ],
   },
   {
+    id:"3",
     title: "Partner",
     links: [
       {

@@ -83,17 +83,17 @@ userSchema.methods.generateAuthToken = async function(){
     }
 }
 
-userSchema.methods.addMessage = async function(name,email,phone,message){
+// userSchema.methods.addMessage = async function(name,email,phone,message){
 
-    try{
-        this.messages = this.messages.concat({name,email,phone,message});
-        await this.save();
-        return this.messages
-    }catch(err){
-        console.log(err);
-    }
+//     try{
+//         this.messages = this.messages.concat({name,email,phone,message});
+//         await this.save();
+//         return this.messages
+//     }catch(err){
+//         console.log(err);
+//     }
 
-}
+// }
 const User = new mongoose.model("USER",userSchema)
 
 module.exports = User;

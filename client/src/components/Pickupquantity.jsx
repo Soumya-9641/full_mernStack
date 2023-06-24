@@ -4,11 +4,29 @@ import {  BiPlus } from 'react-icons/bi';
 import {  TbTruckDelivery } from 'react-icons/tb';
 import {  IoIosArrowDown } from 'react-icons/io';
 import {  BsArrowReturnRight } from 'react-icons/bs';
+import {  GrFormSubtract } from 'react-icons/gr';
 
-const Pickupquantity = () => {
+const Pickupquantity = ({valuefromParent}) => {
+  const [plus, setPlus] = useState(0)
+  const [product, setproduct] = useState(0)
+  localStorage.setItem('valuefromParent', JSON.stringify(valuefromParent));
+  const storedProp = JSON.parse(localStorage.getItem('valuefromParent'));
+  console.log(valuefromParent)
+  const handleIncrement=()=>{
+    if(plus<100){
+      setPlus(plus+5);
+      setproduct(product+1)
+    }
+        
+  }
   const [dropdown, setDropdown] = useState(false)
   const handleclick=()=>{
-        setDropdown(true);
+        setDropdown(!dropdown);
+  }
+  const handleDecrement=()=>{
+          if(plus>0){
+            setPlus(plus-5);
+          }
   }
   return (
     <>
@@ -44,8 +62,9 @@ const Pickupquantity = () => {
                      
                   </div>
                   <div className='flex flex-row items-center bg-blue-gradient p-1 rounded-xl '>
+                  <GrFormSubtract onClick={handleDecrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   <button className='mr-1 text-slate-900 px-2 rounded-2xl '>Add </button>
-                    < BiPlus className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
+                    < BiPlus onClick={handleIncrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   </div>
               </div>  
           </div>
@@ -60,8 +79,9 @@ const Pickupquantity = () => {
                      
                   </div>
                   <div className='flex flex-row items-center bg-blue-gradient p-1 rounded-xl '>
+                  <GrFormSubtract onClick={handleDecrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   <button className='mr-1 text-slate-900 px-2 rounded-2xl '>Add </button>
-                    < BiPlus className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
+                    < BiPlus onClick={handleIncrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   </div>
               </div>  
           </div>
@@ -76,8 +96,9 @@ const Pickupquantity = () => {
                      
                   </div>
                   <div className='flex flex-row items-center bg-blue-gradient p-1 rounded-xl '>
+                  <GrFormSubtract onClick={handleDecrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   <button className='mr-1 text-slate-900 px-2 rounded-2xl '>Add </button>
-                    < BiPlus className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
+                    < BiPlus onClick={handleIncrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   </div>
               </div>  
           </div>
@@ -92,8 +113,9 @@ const Pickupquantity = () => {
                      
                   </div>
                   <div className='flex flex-row items-center bg-blue-gradient p-1 rounded-xl '>
+                  <GrFormSubtract onClick={handleDecrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   <button className='mr-1 text-slate-900 px-2 rounded-2xl '>Add </button>
-                    < BiPlus className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
+                    < BiPlus onClick={handleIncrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   </div>
               </div>  
           </div>
@@ -108,8 +130,9 @@ const Pickupquantity = () => {
                      
                   </div>
                   <div className='flex flex-row items-center bg-blue-gradient p-1 rounded-xl '>
+                  <GrFormSubtract onClick={handleDecrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   <button className='mr-1 text-slate-900 px-2 rounded-2xl '>Add </button>
-                    < BiPlus className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
+                    < BiPlus onClick={handleIncrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   </div>
               </div>  
           </div></> : ""}
@@ -122,8 +145,9 @@ const Pickupquantity = () => {
                      
                   </div>
                   <div className='flex flex-row items-center bg-blue-gradient2 p-1 rounded-xl '>
+                  <GrFormSubtract onClick={handleDecrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                     <button className='mr-1 text-slate-900 px-2 rounded-2xl '>Add </button>
-                    < BiPlus className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
+                    < BiPlus onClick={handleIncrement} type='bag' className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                   </div>
               </div>  
           </div>
@@ -134,9 +158,10 @@ const Pickupquantity = () => {
                       <h4>Clothes</h4>
                      
                   </div>
-                  <div className='flex flex-row items-center bg-blue-gradient2 p-1 rounded-xl cursor-auto'>
+                  <div className='flex flex-row items-center bg-blue-gradient2 p-1 rounded-xl'>
+                  <GrFormSubtract onClick={handleDecrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                     <button className='mr-1 text-slate-900 px-2'>Add </button>
-                    < BiPlus className='text-gray-900 w-[20px] h-[20px]'/>
+                    < BiPlus onClick={handleIncrement} className='text-gray-900 w-[20px] h-[20px]'/>
                   </div>
               </div>  
           </div>
@@ -147,9 +172,10 @@ const Pickupquantity = () => {
                       <h4>Shoes</h4>
                      
                   </div>
-                  <div className='flex flex-row items-center bg-blue-gradient2 p-1 rounded-xl cursor-auto'>
+                  <div className='flex flex-row items-center bg-blue-gradient2 p-1 rounded-xl '>
+                  <GrFormSubtract onClick={handleDecrement} className='text-gray-900 cursor-pointer w-[20px] h-[20px]'/>
                     <button className='mr-1 text-slate-900 px-2'>Add </button>
-                    < BiPlus className='text-gray-900 w-[20px] h-[20px]'/>
+                    < BiPlus onClick={handleIncrement} className='text-gray-900 w-[20px] h-[20px]'/>
                   </div>
               </div>  
           </div>
@@ -159,9 +185,9 @@ const Pickupquantity = () => {
         
         <div className="flex flex-row justify-center ml-60  mb-10 items-center lg:w-[20%] lg:h-[20%] w-[40%] h-[40%]">
           <img className=' justify-center items-center' src={bag1} alt="" />
-          <h6 className='font-poppins text-[40px] text-slate-100'>10%</h6>
+          <h6 className='font-poppins text-[40px] text-slate-100'>{plus}%</h6>
           </div>
-          <hr class="w-64 h-1 lg:ml-40 ml-60 my-8 bg-blue-gradient border-0 rounded dark:bg-gray-700"/>
+          <hr className="w-64 h-1 lg:ml-40 ml-60 my-8 bg-blue-gradient border-0 rounded dark:bg-gray-700"/>
           <div>
             <h2 className='text-gradient'>NOTE:</h2>
             <p className='font-poppins text-gray-100 font-normal flex flex-row items-center pl-4 pr-6 mt-6 mb-6'>You can choose to leave the donation bag at the door or gate for contactless pickup. Please inform the rider for the same when he calls.</p>
@@ -170,13 +196,17 @@ const Pickupquantity = () => {
             <p className='font-poppins text-gray-100 font-normal flex flex-row items-center pl-4 pr-6 mt-6 mb-6'>Please pack the items in a single bag. Only one bag is accepted per request in a two-wheeler but you can raise multiple requests for same slot..</p>
             <p className='font-poppins text-gray-100 font-normal flex flex-row items-center pl-8 pr-6 mt-6 mb-6'>Please keep the items packed and ready for pickup.</p>
           </div>
-          <hr class="w-64 h-1 lg:ml-40 ml-60 my-8 bg-blue-gradient border-0 rounded dark:bg-gray-700"/>
+          <hr className="w-64 h-1 lg:ml-40 ml-60 my-8 bg-blue-gradient border-0 rounded dark:bg-gray-700"/>
             <div className='flex flex-row justify-between mb-6 p-4 mx-4 rounded-xl bg-slate-700'>
             <div className='flex flex-row items-center '>
                 <TbTruckDelivery className='w-[60px] h-[60px] ml-6 mt-0 mr-4'/>
                 <div className='flex flex-col'>
-                  <h6 className='font-poppins font-semibold text-gray-200'>Light pickup</h6>
-                  <p className='font-poppins text-gray-200 text-[15px]'>2 items -₹199</p>
+                  <h6 className='font-poppins font-semibold text-gray-200'>{storedProp}</h6>
+                  <div className='flex flex-row'>
+                  <p className='font-poppins text-gray-200 text-[15px] mr-2'>{product} items</p>
+                       <p className='font-poppins text-gray-200 text-[15px]'>{storedProp==="Light Pickup (via 2-Wheeler)"? "₹199":storedProp==="Collection Drive Pickup"?"₹399":"700"}</p>
+                  </div>
+                
                 </div>
               </div>
               <div className='flex flex-row items-center bg-blue-gradient2 p-1 rounded-xl cursor-auto'>

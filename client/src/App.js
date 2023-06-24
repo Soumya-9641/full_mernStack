@@ -41,10 +41,16 @@ import Story from "./components/Story"
 import Offer from "./components/Offer"
 import './App.css';
 import styles from "./style"
-import React,{createContext} from "react"
-import {Route,Routes} from "react-router-dom"
+import React,{createContext,useState} from "react"
+import {  Routes, Route } from "react-router-dom"
 function App() {
    const userContext =  createContext();
+   const [selectoption, setSelectoption] = useState('')
+   const parentfunction=(datafromchild)=>{
+    
+      setSelectoption(datafromchild);
+      
+  }
   return (
     <>
       
@@ -59,14 +65,16 @@ function App() {
               <Hero/>
             </div>
           </div> */}
-          <Routes>
-          <Route path="/login" element={<>   <Login/></>} />
-          <Route path="/signup" element={<> <Signup/></>} />
-          </Routes>
+         
+          
+         
+        
+         
           <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
               <div className={`${styles.boxWidth}`}>
 
               <Routes>
+              
         <Route exact path="/" element={<><Hero1/><Stats/>
               <Business/>
               <Donate/>
@@ -81,10 +89,12 @@ function App() {
         
         <Route path="/contact" element={<>  <Contact/></>} />
         <Route path="/about" element={<>  <About/></>} />
-        
+        <Route path="/login" element={<>   <Login/></>} />
+          <Route path="/signup" element={<> <Signup/></>} />
         
         <Route path="/logout" element={<> <Logout/></>} />
-        <Route path="/booking" element={<> <Booking/></>} />
+        <Route path="/booking" element={<> <Booking  functionfromParent={parentfunction}/></>} />
+        <Route path="/pickupouantity" element={<> <Pickupquantity valuefromParent={selectoption}/></>} />
         <Route path="/blogsdata/Card1" element={<> <Card1/></>} />
         <Route path="/blogsdata/Card2" element={<> <Card2/></>} />
         <Route path="/blogsdata/Card3" element={<> <Card3/></>} />
@@ -92,14 +102,14 @@ function App() {
         <Route path="/blogsdata/Card5" element={<> <Card5/></>} />
         <Route path="/points" element={<> <Points/><Footer/></>} />
         <Route path="/work" element={<> <Work/></>} />
-        <Route path="/pickupouantity" element={<> <Pickupquantity/></>} />
+      
         <Route path="/offer" element={<> <Offer/></>} />
         <Route path="/story" element={<> <Story/></>} />
         <Route path="/ngo" element={<> <Ngopartner/></>} />
         <Route path="/employee" element={<> <Employee/></>} />
         <Route path="/brand" element={<> <Brandpartner/></>} />
         <Route path="/volunteer" element={<> <Volunteer/></>} />
-        <Route path="/finalbooking" element={<> <Finalbooking/></>} />
+        <Route path="/finalbooking" element={<> <Finalbooking /></>} />
         <Route path="/personal" element={<> <Personal/><Footer/></>} />
         <Route path="/corporate" element={<> <Corporate/></>} />
         <Route path="/donation" element={<> <Smartdonation/></>} />
@@ -107,7 +117,7 @@ function App() {
         <Route path="/involved" element={<> <Involved/></>} />
         <Route path="/reward" element={<> <Reward/></>} />
         {/* <Route  path="*" element={<>  <Error/></>} /> */}
-      
+        
         </Routes>
              
               </div>

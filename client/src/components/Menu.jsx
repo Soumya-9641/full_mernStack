@@ -2,10 +2,10 @@ import { light } from '@mui/material/styles/createPalette'
 import React,{useState} from 'react'
 import {navLinks} from "../constant/index"
 import Dropdown from './Dropdown'
-const Menu = ({items,key}) => {
+const Menu = ({items,keyid}) => {
   const [dropdown, setDropdown] = useState(false)
   return (
-    <li className={` font-poppins font-normal cursor-pointer text-[16px] ${key === navLinks.length -1 ? `mr-0` : `mr-10`} text-white`}>
+    <li className={` font-poppins font-normal cursor-pointer text-[16px] ${keyid === navLinks.length -1 ? `mr-0` : `mr-10`} text-white`}>
             {items.submenu ? (
                 <>
                 <button type="button" aria-haspopup="menu"
