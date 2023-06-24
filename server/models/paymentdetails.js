@@ -1,13 +1,9 @@
 const mongoose = require("mongoose");
 const paymentScema = new mongoose.Schema({
    
-    date:{
-        type:String,
+    datetime:{
+        type:Date,
         required: true
-    },
-    timeslot:{
-        type:String,
-        required:true
     },
     name:{
         type:String,

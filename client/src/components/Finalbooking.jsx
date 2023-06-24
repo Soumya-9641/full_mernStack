@@ -20,17 +20,18 @@ const Finalbooking = () => {
                   return {...prev,[name]:value};
                 })
           }
-         // console.log(details)
+          
           const handleSubmit=async (e)=>{
+            console.log(details)
              e.preventDefault();
-             const payments = {details};
+             //const payments = {details};
     const res = await fetch("/payment",{
       method:"POST",
       headers:{
         "Content-Type" : "application/json"
       },
 
-      body:JSON.stringify(payments)
+      body:JSON.stringify(details)
     });
     const data=await res.json();
     
@@ -63,10 +64,12 @@ const Finalbooking = () => {
                 <div className="relative mb-4">
                    
                     <input onChange={handleChange} value={details.date} type="text" id="date" name="date" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Enter exact date' autoComplete='off'/>
+                    <p className='font-poppins text-gray-200 text-[12px] mb-0'>*please give a valid format like: 2023-06-24</p>
                 </div>
                 <div className="relative mb-4">
                    
-                    <input onChange={handleChange} value={details.timeslot} type="text" id="timeslot" name="timeslot" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Enter time slot' autoComplete='off'/>
+                    <input onChange={handleChange} value={details.timeslot} type="text" id="time" name="timeslot" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Enter time slot' autoComplete='off'/>
+                    <p className='font-poppins text-gray-200 text-[12px] mb-0'>*please give a valid format like:08:30:00Z</p>
                 </div>
                 
                 </div>

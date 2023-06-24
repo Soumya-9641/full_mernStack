@@ -2,6 +2,7 @@ const express = require("express");
 require("../db/connect")
 const User = require("../models/user")
 const Paymetdetails = require("../models/paymentdetails")
+const employee = require("../models/colaboration");
 const router = express.Router()
 const bcrypt = require("bcryptjs")
 const jwtoken =  require("jsonwebtoken")
@@ -63,11 +64,12 @@ router.post("/register", async (req,res)=>{
 })
 router.post("/payment",async(req,res)=>{
             const{date, timeslot,name,email,flatno, city,pincode,address, note} =req.body;
-            if(!date || !timeslot || !name ||!email||!city||!flatno||!pincode||!address){
+            const datetime= new Date(`${date}T${timeslot}`);
+            if(!timeslot  || !name ||!email||!city||!flatno||!pincode||!address){
                 return res.status(403).json({error:"plz filled the field properly"})
             }
             try{
-                    const paymentdetails = new Paymetdetails({date, timeslot,name,email,flatno, city,pincode,address, note})
+                    const paymentdetails =  new Paymetdetails({datetime,name,email,flatno, city,pincode,address, note})
                     await paymentdetails.save();
                     res.status(201).json(paymentdetails)
                     
@@ -120,6 +122,22 @@ router.post("/login", async (req,res)=>{
 router.get("/about",authenticate,(req,res)=>{
     console.log("Hello my about")
     res.send(req.rootUser);
+})
+router.post("/employee",authenticate,async(req,res)=>{
+    
+    const {name,email,contact,type,message}=req.body;
+    if(!name||!email||!contact||!type||!message){
+        return res.status(400).json({error:"plz filled the data"})
+    }
+    try{
+        const employeedetails = new employee({name,email,contact,type,message});
+        await employeedetails.save();
+        res.status(201).json(employeedetails)
+
+
+    }catch(err){
+        console.log(err);
+    }
 })
 router.get("/getdata",authenticate,(req,res)=>{
     console.log("Hello my contact")

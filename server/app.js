@@ -4,12 +4,13 @@ const app = express()
 const multer = require("multer")
 const mongoose = require("mongoose")
 const dotenv = require("dotenv")
+//const cors = require('cors');
 
 dotenv.config({path:"./config.env"})
 require("./db/connect")
 const User = require("./models/user")
 const PORT = process.env.PORT | 8000;
-
+//app.use(cors());
 //link the router part
 // app.use(multer({
 //     dest: './router/auth.js'
