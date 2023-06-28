@@ -60,16 +60,6 @@ function App() {
               <Navbar/>
             </div>
           </div>
-          {/* <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-            <div className={`${styles.boxWidth}`}>
-              <Hero/>
-            </div>
-          </div> */}
-         
-          
-         
-        
-         
           <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
               <div className={`${styles.boxWidth}`}>
 
@@ -116,7 +106,7 @@ function App() {
         <Route path="/campaign" element={<> <Campaign/><Footer/></>} />
         <Route path="/involved" element={<> <Involved/></>} />
         <Route path="/reward" element={<> <Reward/></>} />
-        {/* <Route  path="*" element={<>  <Error/></>} /> */}
+     
         
         </Routes>
              
@@ -125,20 +115,7 @@ function App() {
           
     </div>
      
-       {/* <Routes>
-        <Route exact path="/" element={<><Navbar/> <Home/></>}/>
-        
-           
-        
-        <Route path="/contact" element={<> <Navbar/> <Contact/></>} />
-        <Route path="/about" element={<> <Navbar/> <About/></>} />
-        <Route path="/login" element={<> <Navbar/>  <Login/></>} />
-        <Route path="/signup" element={<> <Navbar/> <Signup/></>} />
-        <Route path="/logout" element={<> <Logout/></>} />
-        <Route  path="*" element={<> <Navbar/> <Error/></>} />
-      
-        </Routes>
-         */}
+       
     </>
     
   );

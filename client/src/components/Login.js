@@ -20,6 +20,7 @@ const Login = () => {
           const res = await fetch("/login",{
             method:"POST",
             headers:{
+              Accept:"application/json",
               "Content-Type" : "application/json"
             },
             body:JSON.stringify({
@@ -41,7 +42,7 @@ const Login = () => {
       <div className='App'>
 
       
-      <form className="form" onSubmit={handleSubmit}>
+      <form type="POST" className="form" >
         <div className="input-container">
           <label className="label">Username: </label>
           <input
@@ -67,7 +68,7 @@ const Login = () => {
             Forgot password?
           </a>
         </div>
-        <button type="submit" id="login-btn">
+        <button onClick={handleSubmit} type="submit" id="login-btn">
           Login
         </button>
       </form>

@@ -2,6 +2,7 @@ const express = require("express");
 require("../db/connect")
 const User = require("../models/user")
 const Paymetdetails = require("../models/paymentdetails")
+const Personalquery = require("../models/personalquery")
 const employee = require("../models/colaboration");
 const router = express.Router()
 const bcrypt = require("bcryptjs")
@@ -13,33 +14,7 @@ router.get("/",(req,res)=>{
     console.log("Call the middlewares")
     res.send("Hello World from router")
 })
-//using promises
-// router.post("/register",(req,res)=>{
-//     const {name,email,phone,work,password,cpassword}= req.body
-//     if(!name || !email || !phone || !work||!password||!cpassword){
-//         return res.status(200).json({error:"plz filled the field properly"})
-//     }
-//     User.findOne({email:email})
-//     .then((userexist)=>{
-//         if(userexist){
-//             return res.status(200).json({error:"email already exist"})
-//         }
-//         const user = new User({name,email,phone,work,password,cpassword})
-//         user.save().then(()=>{
-//             res.status(201).json({message:"user registered successfully"})
-//         }).catch((err)=>{
-//             console.log(err)
-//         })
-//     }).catch((err)=>{
-//         console.log(err)
-//     })
 
-    
-//     console.log(req.body)
-//     res.json({message: req.body})
-// })
-
-//using async await
 router.post("/register", async (req,res)=>{
     const {name,email,phone,work,password,cpassword}= req.body
          if(!name || !email || !phone || !work||!password||!cpassword){
@@ -79,6 +54,38 @@ router.post("/payment",async(req,res)=>{
             }
 })
 
+router.post("/employee",async(req,res)=>{
+        try{
+
+            const {name,email,contact,type,message} = req.body;
+            if(!name||!email||!contact||!type||!message){
+                return res.status(400).json({erro:"Plz fill the data"})
+            }
+            const personalquery = new employee({name,email,contact,type,message});
+            await personalquery.save();
+            res.status(201).json(personalquery)
+
+        }catch(err){
+            console.log(err);
+        }
+})
+router.post("/personalquery",async(req,res)=>{
+    try{
+
+        const {name,email,contact,query,subject,message} = req.body;
+        if(!name||!email||!contact||!message||!query||!subject){
+            return res.status(400).json({erro:"Plz fill the data"})
+        }
+        const employeEngagement = new employee({name,email,contact,query,subject,message});
+        await employeEngagement.save();
+        res.status(201).json(employeEngagement)
+
+    }catch(err){
+        console.log(err);
+    }
+})
+
+
 //login
 router.post("/login", async (req,res)=>{
     // console.log(req.body)
@@ -102,6 +109,7 @@ router.post("/login", async (req,res)=>{
                 expires: new Date(Date.now() + 12323000000),
                 httpOnly:true
             });
+            
         if(!isMatch){
             res.status(402).json({error:"Invalid credentials part 1"})
             
@@ -123,22 +131,7 @@ router.get("/about",authenticate,(req,res)=>{
     console.log("Hello my about")
     res.send(req.rootUser);
 })
-router.post("/employee",authenticate,async(req,res)=>{
-    
-    const {name,email,contact,type,message}=req.body;
-    if(!name||!email||!contact||!type||!message){
-        return res.status(400).json({error:"plz filled the data"})
-    }
-    try{
-        const employeedetails = new employee({name,email,contact,type,message});
-        await employeedetails.save();
-        res.status(201).json(employeedetails)
 
-
-    }catch(err){
-        console.log(err);
-    }
-})
 router.get("/getdata",authenticate,(req,res)=>{
     console.log("Hello my contact")
     res.send(req.rootUser);
