@@ -3,6 +3,8 @@ require("../db/connect")
 const User = require("../models/user")
 const Paymetdetails = require("../models/paymentdetails")
 const Personalquery = require("../models/personalquery")
+const Corporatequery= require("../models/corporate")
+const Corporatequeryschema = require("../models/corporatequery")
 const employee = require("../models/colaboration");
 const router = express.Router()
 const bcrypt = require("bcryptjs")
@@ -76,9 +78,39 @@ router.post("/personalquery",async(req,res)=>{
         if(!name||!email||!contact||!message||!query||!subject){
             return res.status(400).json({erro:"Plz fill the data"})
         }
-        const employeEngagement = new employee({name,email,contact,query,subject,message});
+        const employeEngagement = new Personalquery({name,email,contact,query,subject,message});
         await employeEngagement.save();
         res.status(201).json(employeEngagement)
+
+    }catch(err){
+        console.log(err);
+    }
+})
+router.post("/corporate",async(req,res)=>{
+    try{
+
+        const {societyname,orgname,email,contact,query,subject,donorsno,items,details} = req.body;
+        if(!societyname||!orgname||!email||!contact||!query||!donorsno||!items||!details||!subject){
+            return res.status(400).json({erro:"Plz fill the data"})
+        }
+        const corporatequery = new Corporatequery({societyname,orgname,email,contact,query,items,subject,donorsno,details});
+        await corporatequery.save();
+        res.status(201).json(corporatequery)
+
+    }catch(err){
+        console.log(err);
+    }
+})
+router.post("/corporatequery",async(req,res)=>{
+    try{
+
+        const {name,email,company,contact,query,subject,message} = req.body;
+        if(!name||!email||!contact||!query||!company||!message||!subject){
+            return res.status(400).json({erro:"Plz fill the data"})
+        }
+        const corporatequeryschema = new Corporatequeryschema({name,email,company,contact,query,subject,message});
+        await corporatequeryschema.save();
+        res.status(201).json(corporatequeryschema)
 
     }catch(err){
         console.log(err);
