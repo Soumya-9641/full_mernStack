@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require('cookie-parser')
 const app = express()
+const Razorpay = require("razorpay") ;
 const multer = require("multer")
 const mongoose = require("mongoose")
 const dotenv = require("dotenv")
@@ -9,7 +10,7 @@ const dotenv = require("dotenv")
 dotenv.config({path:"./config.env"})
 require("./db/connect")
 const User = require("./models/user")
-const PORT = process.env.PORT | 8000;
+const PORT = process.env.PORT;
 //app.use(cors());
 //link the router part
 // app.use(multer({
@@ -19,15 +20,12 @@ const PORT = process.env.PORT | 8000;
 app.use(cookieParser())
 app.use(express.json())
 app.use(require('./router/auth'));
+const instance = new Razorpay({
+    key_id: process.env.RAZORPAY_API_KEY,
+    key_secret: process.env.RAZORPAY_SECRET_KEY,
+  });
 
 
-//middlewares
-
-// const middlewares = (req,res,next)=>{
-//     console.log("Hello middlewares")
-//     next()
-// }
-//middlewares();
 app.get("/",(req,res)=>{
     console.log("Call the middlewares")
     res.send("Hello World")
@@ -44,3 +42,4 @@ app.get("/",(req,res)=>{
 app.listen(PORT , (req,res)=>{
     console.log(`app is running on port ${PORT}`)
 })
+module.exports=instance

@@ -10,12 +10,17 @@ const router = express.Router()
 const bcrypt = require("bcryptjs")
 const jwtoken =  require("jsonwebtoken")
 const authenticate = require("../middlewares/authenticate");
+const { checkout }= require( "../controller/paymentController");
 const Pickup = require("../models/pickup")
 const service = require("../service.json")
-router.get("/",(req,res)=>{
-    console.log("Call the middlewares")
-    res.send("Hello World from router")
-})
+
+const{instance} = require("../app.js")
+
+
+// router.get("/",(req,res)=>{
+//     console.log("Call the middlewares")
+//     res.send("Hello World from router")
+
 
 router.post("/register", async (req,res)=>{
     const {name,email,phone,work,password,cpassword}= req.body
@@ -219,6 +224,8 @@ router.get("/pincode",async (req,res)=>{
         console.log(err);
     }
 })
+
+
 
 
 module.exports = router

@@ -5,6 +5,7 @@ import Help1 from "./components/Help1"
 import Help2 from "./components/Help2"
 import Login from "./components/Login"
 import Help from "./components/Help"
+import Map from "./components/Map"
 import Why from "./components/Why";
 import Booking from "./components/Booking"
 import Ngo from "./components/Ngo"
@@ -106,7 +107,8 @@ function App() {
         <Route path="/campaign" element={<> <Campaign/><Footer/></>} />
         <Route path="/involved" element={<> <Involved/></>} />
         <Route path="/reward" element={<> <Reward/></>} />
-     
+        <Route path="/map" element={<>  <Map/></>} />
+       
         
         </Routes>
              

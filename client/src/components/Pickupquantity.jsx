@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {bag,donate,shoes,cloth,bag1,stationary,furniture} from "../assets"
 import {  BiPlus } from 'react-icons/bi';
 import {  TbTruckDelivery } from 'react-icons/tb';
@@ -9,9 +9,42 @@ import {  GrFormSubtract } from 'react-icons/gr';
 const Pickupquantity = ({valuefromParent}) => {
   const [plus, setPlus] = useState(0)
   const [product, setproduct] = useState(0)
-  localStorage.setItem('valuefromParent', JSON.stringify(valuefromParent));
-  const storedProp = JSON.parse(localStorage.getItem('valuefromParent'));
-  console.log(valuefromParent)
+  const [prop, setProp] = useState(()=>{
+    const storedProp = JSON.parse(localStorage.getItem('valuefromParent'));
+    return storedProp || 0;
+  })
+  
+
+
+
+  useEffect(() => {
+    // Store the value from the parent component in localStorage
+    localStorage.setItem('valueFromParent', JSON.stringify(valuefromParent));
+
+    
+    setProp(valuefromParent);
+  }, [valuefromParent]);
+
+
+  // const [prop, setProp] = useState(0)
+  // useEffect(() => {
+  //   window.history.replaceState(null, '', `?prop=${valuefromParent}`);
+
+  //   // Update the product state with the new value
+  //   setProp(valuefromParent);
+  
+  // }, [valuefromParent])
+
+  // useEffect(() => {
+  //   const urlParams = new URLSearchParams(window.location.search);
+  //   const storedValue = parseInt(urlParams.get('prop')) || 0;
+
+  //   // Set the product state with the retrieved value
+  //   setProp(storedValue);
+  // }, [])
+  
+  
+
   const handleIncrement=()=>{
     if(plus<100){
       setPlus(plus+5);
@@ -201,10 +234,10 @@ const Pickupquantity = ({valuefromParent}) => {
             <div className='flex flex-row items-center '>
                 <TbTruckDelivery className='w-[60px] h-[60px] ml-6 mt-0 mr-4'/>
                 <div className='flex flex-col'>
-                  <h6 className='font-poppins font-semibold text-gray-200'>{storedProp}</h6>
+                  <h6 className='font-poppins font-semibold text-gray-200'>{prop}</h6>
                   <div className='flex flex-row'>
                   <p className='font-poppins text-gray-200 text-[15px] mr-2'>{product} items</p>
-                       <p className='font-poppins text-gray-200 text-[15px]'>{storedProp==="Light Pickup (via 2-Wheeler)"? "₹199":storedProp==="Collection Drive Pickup"?"₹399":"700"}</p>
+                       <p className='font-poppins text-gray-200 text-[15px]'>{prop==="Light Pickup (via 2-Wheeler)"? "₹199":prop==="Collection Drive Pickup"?"₹399":"700"}</p>
                   </div>
                 
                 </div>
