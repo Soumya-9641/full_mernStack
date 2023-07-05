@@ -16,10 +16,11 @@ function loadScript(src) {
 	})
 }
 
-const __DEV__ = document.domain === 'localhost'
+
 const Finalbooking = () => {
+  const [disable, setDisable] = useState(true);
 
-
+    const [dummyname, setDummyname] = useState("soumya")
 
   async function displayRazorpay() {
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
@@ -29,29 +30,29 @@ const Finalbooking = () => {
 			return
 		}
 
-		const data = await fetch('http://localhost:1337/razorpay', { method: 'POST' }).then((t) =>
+		const data = await fetch("/razorpay", { method: 'POST' }).then((t) =>
 			t.json()
 		)
 
 		console.log(data)
 
 		const options = {
-			key: __DEV__ ? 'rzp_test_uGoq5ABJztRAhk' : 'PRODUCTION_KEY',
+			key:  'rzp_test_NqBEWmLJAJOnjU' ,
 			currency: data.currency,
 			amount: data.amount.toString(),
 			order_id: data.id,
 			name: 'Donation',
 			description: 'Thank you for nothing. Please give us some money',
-			image: 'http://localhost:1337/logo.svg',
+			image: 'http://localhost:8000/cloth.png',
 			handler: function (response) {
 				alert(response.razorpay_payment_id)
 				alert(response.razorpay_order_id)
 				alert(response.razorpay_signature)
 			},
 			prefill: {
-				name:"soumya",
-				email: 'sdfdsjfh2@ndsfdf.com',
-				phone_number: '9899999999'
+				name:dummyname,
+				// email: 'sdfdsjfh2@ndsfdf.com',
+				// phone_number: '9899999999'
 			}
 		}
 		const paymentObject = new window.Razorpay(options)
@@ -80,8 +81,9 @@ const Finalbooking = () => {
           
           const handleSubmit=async (e)=>{
             console.log(details)
+            setDisable(false);
              e.preventDefault();
-             displayRazorpay();
+             
              //const payments = {details};
     const res = await fetch("/payment",{
       method:"POST",
@@ -116,8 +118,8 @@ const Finalbooking = () => {
              
     </div>
     <div className="container px-0 py-24 mx-auto flex justify-center flex-wrap">
-      <div className="lg:w-1/2  pl-10 pr-10 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
-      <div className="  bg-slate-700 rounded-lg p-8 flex flex-col md:ml-auto lg:w-[100%] w-[400px] mt-10 md:mt-0">
+      <div className="lg:w-1/2  pl-10 pr-10 md:w-full  mb-10 lg:mb-0 rounded-lg overflow-hidden">
+      <div className="  bg-slate-700 rounded-lg p-8 flex flex-col  lg:ml-auto md:ml-60 lg:w-[100%]  w-[400px] mt-10 md:mt-0">
                 <h2 className="text-gray-900 text-lg font-medium title-font mb-5"> CHOOSE A PICKUP SLOT</h2>
                 <div className="relative mb-4">
                    
@@ -130,10 +132,10 @@ const Finalbooking = () => {
                     <p className='font-poppins text-gray-200 text-[12px] mb-0'>*please give a valid format like:08:30:00Z</p>
                 </div>
                 
-                </div>
+                </div> 
                 
-                <hr className="w-64 h-1 lg:ml-40 ml-60 my-8 bg-blue-gradient border-0 rounded dark:bg-gray-700"/>
-                <div className="  bg-slate-700 rounded-lg p-8 flex flex-col md:ml-auto lg:w-[100%] w-[400px] mt-10 md:mt-0">
+                <hr className="w-64 h-1 lg:ml-40 md:ml-60 ml-20 my-8 bg-blue-gradient border-0 rounded dark:bg-gray-700"/>
+                <div className="  bg-slate-700 rounded-lg p-8 flex flex-col lg:ml-auto md:ml-60 lg:w-[100%] w-[400px] mt-10 md:mt-0">
                 <h2 className="text-gray-900 text-lg font-medium title-font mb-2"> NOTES FOR PICKUP PERSON (Optional)</h2>
                 <p className='font-poppins text-gray-200 text-[10px] mb-4'>* We'll do our best to pass along your instructions to our Pickup Partner. Compliance isn't guaranteed.</p>
                 <div className="relative mb-4">
@@ -167,7 +169,11 @@ const Finalbooking = () => {
                     
                     <textarea onChange={handleChange} value={details.address} className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" name="address" id="address" cols="35" rows="3" placeholder='full address'></textarea>
                 </div>
-               
+                <div className='flex flex-row w-[50%] lg:ml-40 ml-24 items-center bg-blue-gradient2 p-1 rounded-xl cursor-auto'>
+                 
+                      <button onClick={handleSubmit}  className='mr-1 flex items-center justify-center lg:ml-4 text-slate-900 px-6'>Save The data </button>
+                   
+              </div>
                 </div>
 
 
@@ -181,10 +187,13 @@ const Finalbooking = () => {
             </div>
                 </div>
                
-                <div className='flex flex-row w-[30%] lg:ml-40 ml-24 items-center bg-blue-gradient2 p-1 rounded-xl cursor-auto'>
-                  <a href="/finalbooking">
-                      <button onClick={handleSubmit}  className='mr-1 flex items-center justify-center lg:ml-4 text-slate-900 px-6'>Pay Now </button>
-                    </a>
+                <div className='flex flex-row w-[30%] lg:ml-40 ml-24 items-center bg-blue-gradient2 p-1 rounded-xl '>
+                  {disable?
+                  <button  className='mr-1 flex items-center justify-center lg:ml-4 text-slate-900 px-6 cursor-none'>Please fill the details </button>:
+                  <button onClick={displayRazorpay}  className='mr-1 flex items-center justify-center lg:ml-4 text-slate-900 px-6 cursor-pointer'>Pay Now </button>
+                  }
+                      
+                  
               </div>
                 </div>
         </div>

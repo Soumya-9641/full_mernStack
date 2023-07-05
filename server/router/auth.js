@@ -1,6 +1,7 @@
 const express = require("express");
 require("../db/connect")
 const User = require("../models/user")
+const shortid = require("shortid")
 const Paymetdetails = require("../models/paymentdetails")
 const Personalquery = require("../models/personalquery")
 const Corporatequery= require("../models/corporate")
@@ -10,17 +11,39 @@ const router = express.Router()
 const bcrypt = require("bcryptjs")
 const jwtoken =  require("jsonwebtoken")
 const authenticate = require("../middlewares/authenticate");
-const { checkout }= require( "../controller/paymentController");
+const Razorpay = require("razorpay") ;
 const Pickup = require("../models/pickup")
 const service = require("../service.json")
 
-const{instance} = require("../app.js")
 
+// const razorpay = new Razorpay({
+//     key_id: process.env.RAZORPAY_API_KEY,
+//     key_secret: process.env.RAZORPAY_SECRET_KEY,
+//   });
+//   router.post('/razorpay', async (req, res) => {
+// 	const payment_capture = 1
+// 	const amount = 499
+// 	const currency = 'INR'
 
-// router.get("/",(req,res)=>{
-//     console.log("Call the middlewares")
-//     res.send("Hello World from router")
+// 	const options = {
+// 		amount: amount * 100,
+// 		currency,
+// 		receipt: shortid.generate(),
+// 		payment_capture
+// 	}
 
+// 	try {
+// 		const response = await razorpay.orders.create(options)
+// 		console.log(response)
+// 		res.json({
+// 			id: response.id,
+// 			currency: response.currency,
+// 			amount: response.amount
+// 		})
+// 	} catch (error) {
+// 		console.log(error)
+// 	}
+// })
 
 router.post("/register", async (req,res)=>{
     const {name,email,phone,work,password,cpassword}= req.body
