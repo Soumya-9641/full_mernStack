@@ -1,6 +1,8 @@
 import { Details } from '@material-ui/icons';
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {  TbTruckDelivery } from 'react-icons/tb';
+import  { useNavigate } from "react-router-dom";
+const shortid = require('shortid')
 
 function loadScript(src) {
 	return new Promise((resolve) => {
@@ -17,11 +19,24 @@ function loadScript(src) {
 }
 
 
-const Finalbooking = () => {
+const Finalbooking = ({valueParentfunc}) => {
+  const navigate = useNavigate()
   const [disable, setDisable] = useState(true);
+  const [prop, setProp] = useState(()=>{
+    const storedProp = JSON.parse(localStorage.getItem('valueParentfunc'));
+    return storedProp || 0;
+  })
 
     const [dummyname, setDummyname] = useState("soumya")
-
+    useEffect(() => {
+      // Store the value from the parent component in localStorage
+      localStorage.setItem('valueParentfunc', JSON.stringify(valueParentfunc));
+  
+      
+      setProp(valueParentfunc);
+    }, [valueParentfunc]);
+    const paymentval = prop.propval==="Light Pickup (via 2-Wheeler)"? 199:prop.propval==="Collection Drive Pickup"?399:700
+    
   async function displayRazorpay() {
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
@@ -29,18 +44,25 @@ const Finalbooking = () => {
 			alert('Razorpay SDK failed to load. Are you online?')
 			return
 		}
-
-		const data = await fetch("/razorpay", { method: 'POST' }).then((t) =>
-			t.json()
-		)
-
+    const oid=shortid.generate()
+    const data ={paymentval,oid}
+		let a = await fetch('/razorpay', {
+      method: 'POST', // or 'PUT'
+      headers: {
+       'Content-Type': 'application/json',
+     },
+     body: JSON.stringify(data),
+   })
+    let txnRes = await a.json()
+    console.log(txnRes)
+   const amount= paymentval*100
 		console.log(data)
 
 		const options = {
 			key:  'rzp_test_NqBEWmLJAJOnjU' ,
-			currency: data.currency,
-			amount: data.amount.toString(),
-			order_id: data.id,
+			currency: "INR",
+			amount: amount,
+			order_id: txnRes.id,
 			name: 'Donation',
 			description: 'Thank you for nothing. Please give us some money',
 			image: 'http://localhost:8000/cloth.png',
@@ -48,6 +70,8 @@ const Finalbooking = () => {
 				alert(response.razorpay_payment_id)
 				alert(response.razorpay_order_id)
 				alert(response.razorpay_signature)
+        navigate("/")
+
 			},
 			prefill: {
 				name:dummyname,
@@ -121,6 +145,7 @@ const Finalbooking = () => {
       <div className="lg:w-1/2  pl-10 pr-10 md:w-full  mb-10 lg:mb-0 rounded-lg overflow-hidden">
       <div className="  bg-slate-700 rounded-lg p-8 flex flex-col  lg:ml-auto md:ml-60 lg:w-[100%]  w-[400px] mt-10 md:mt-0">
                 <h2 className="text-gray-900 text-lg font-medium title-font mb-5"> CHOOSE A PICKUP SLOT</h2>
+                <h2 className="text-gray-900 text-lg font-medium title-font mb-5">You choose  {prop.nofproduct} products</h2>
                 <div className="relative mb-4">
                    
                     <input onChange={handleChange} value={details.date} type="text" id="date" name="date" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder='Enter exact date' autoComplete='off'/>
@@ -189,8 +214,8 @@ const Finalbooking = () => {
                
                 <div className='flex flex-row w-[30%] lg:ml-40 ml-24 items-center bg-blue-gradient2 p-1 rounded-xl '>
                   {disable?
-                  <button  className='mr-1 flex items-center justify-center lg:ml-4 text-slate-900 px-6 cursor-none'>Please fill the details </button>:
-                  <button onClick={displayRazorpay}  className='mr-1 flex items-center justify-center lg:ml-4 text-slate-900 px-6 cursor-pointer'>Pay Now </button>
+                  <button  className='mr-1 flex items-center justify-center lg:ml-4 text-slate-900 px-6 cursor-none'>Please fill the details</button>:
+                  <button onClick={displayRazorpay}  className='mr-1 flex items-center justify-center lg:ml-4 text-slate-900 px-6 cursor-pointer'>Pay Now  {paymentval}</button>
                   }
                       
                   

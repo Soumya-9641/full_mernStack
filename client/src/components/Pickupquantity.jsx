@@ -5,16 +5,24 @@ import {  TbTruckDelivery } from 'react-icons/tb';
 import {  IoIosArrowDown } from 'react-icons/io';
 import {  BsArrowReturnRight } from 'react-icons/bs';
 import {  GrFormSubtract } from 'react-icons/gr';
-
-const Pickupquantity = ({valuefromParent}) => {
+import { useNavigate } from 'react-router-dom';
+const Pickupquantity = ({valuefromParent,functionparent}) => {
   const [plus, setPlus] = useState(0)
+  const navigate = useNavigate();
   const [product, setproduct] = useState(0)
   const [prop, setProp] = useState(()=>{
     const storedProp = JSON.parse(localStorage.getItem('valuefromParent'));
     return storedProp || 0;
   })
-  
-
+ 
+const childClick=(e)=>{
+  const rendervalue={
+    nofproduct:product,
+    propval:prop
+  }
+  functionparent(rendervalue);
+  navigate("/finalbooking")
+}
 
 
   useEffect(() => {
@@ -24,26 +32,6 @@ const Pickupquantity = ({valuefromParent}) => {
     
     setProp(valuefromParent);
   }, [valuefromParent]);
-
-
-  // const [prop, setProp] = useState(0)
-  // useEffect(() => {
-  //   window.history.replaceState(null, '', `?prop=${valuefromParent}`);
-
-  //   // Update the product state with the new value
-  //   setProp(valuefromParent);
-  
-  // }, [valuefromParent])
-
-  // useEffect(() => {
-  //   const urlParams = new URLSearchParams(window.location.search);
-  //   const storedValue = parseInt(urlParams.get('prop')) || 0;
-
-  //   // Set the product state with the retrieved value
-  //   setProp(storedValue);
-  // }, [])
-  
-  
 
   const handleIncrement=()=>{
     if(plus<100){
@@ -243,9 +231,9 @@ const Pickupquantity = ({valuefromParent}) => {
                 </div>
               </div>
               <div className='flex flex-row items-center bg-blue-gradient2 p-1 rounded-xl cursor-auto'>
-                  <a href="/finalbooking">
-                      <button className='mr-1 text-slate-900 px-6'>Next </button>
-                    </a>
+        
+                      <button onClick={childClick} className='mr-1 text-slate-900 px-6'>Next </button>
+                  
               </div>
             </div>
         </div>

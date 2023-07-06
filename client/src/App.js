@@ -47,11 +47,17 @@ import {  Routes, Route } from "react-router-dom"
 function App() {
    const userContext =  createContext();
    const [selectoption, setSelectoption] = useState('')
+   const [option, setOption] = useState('')
    const parentfunction=(datafromchild)=>{
     
       setSelectoption(datafromchild);
       
   }
+  const parentfunc=(datafromchildren)=>{
+    
+    setOption(datafromchildren);
+    
+}
   return (
     <>
       
@@ -85,7 +91,7 @@ function App() {
         
         <Route path="/logout" element={<> <Logout/></>} />
         <Route path="/booking" element={<> <Booking  functionfromParent={parentfunction}/></>} />
-        <Route path="/pickupouantity" element={<> <Pickupquantity valuefromParent={selectoption}/></>} />
+      <Route path="/pickupouantity" element={<> <Pickupquantity functionparent={parentfunc} valuefromParent={selectoption}/></>} />
         <Route path="/blogsdata/Card1" element={<> <Card1/></>} />
         <Route path="/blogsdata/Card2" element={<> <Card2/></>} />
         <Route path="/blogsdata/Card3" element={<> <Card3/></>} />
@@ -100,7 +106,7 @@ function App() {
         <Route path="/employee" element={<> <Employee/></>} />
         <Route path="/brand" element={<> <Brandpartner/></>} />
         <Route path="/volunteer" element={<> <Volunteer/></>} />
-        <Route path="/finalbooking" element={<> <Finalbooking /></>} />
+        <Route path="/finalbooking" element={<> <Finalbooking valueParentfunc={option} /></>} />
         <Route path="/personal" element={<> <Personal/><Footer/></>} />
         <Route path="/corporate" element={<> <Corporate/></>} />
         <Route path="/donation" element={<> <Smartdonation/></>} />

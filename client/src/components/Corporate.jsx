@@ -122,7 +122,7 @@ const Corporate = () => {
         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
           Message
         </label>
-        <textarea value={formdata.message} name='message' onChange={handleChange}  className="appearance-none block bg-gray-200 text-gray-700 border border-gray-200  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  rounded-md w-80 h-20 resize-y" id="grid-password" type="text" placeholder="enter the subject of your content" />
+        <textarea value={formdata.message} name='message' onChange={handleChange}  className="appearance-none block bg-gray-200 text-gray-700 border border-gray-200  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  rounded-md lg:w-80 sm:60  h-20 resize-y" id="grid-password" type="text" placeholder="enter the subject of your content" />
         
       </div>
     </div>

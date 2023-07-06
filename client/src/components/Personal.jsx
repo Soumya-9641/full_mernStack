@@ -108,7 +108,7 @@ const Personal = () => {
         <label className="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2" for="grid-password">
           Message
         </label>
-        <textarea name='message' onChange={handleChange} value={formdata.message} className="appearance-none block bg-gray-200 text-gray-800 border border-gray-200  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  rounded-md w-80 h-20 resize-y" id="grid-password" type="text" placeholder="enter the subject of your content" />
+        <textarea name='message' onChange={handleChange} value={formdata.message} className="appearance-none block bg-gray-200 text-gray-800 border border-gray-200  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  rounded-md md:w-50 lg:w-80 sm:w-40 h-20 resize-y" id="grid-password" type="text" placeholder="enter the subject of your content" />
         
       </div>
     </div>
